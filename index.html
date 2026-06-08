@@ -92,7 +92,7 @@
       <div class="container">
         <h2>Get In Touch</h2>
         <p>Have a question or want to discuss a project? We'd love to hear from you!</p>
-        <form class="contact-form" action="mailto:biniyameliyas1@gmail.com" method="post" enctype="text/plain">
+        <form id="contact-form" class="contact-form">
           <div class="form-group">
             <label for="name">Name:</label>
             <input type="text" id="name" name="name" required>
@@ -114,6 +114,7 @@
           </div>
           
           <button type="submit" class="submit-btn">Send Message</button>
+          <p id="form-status" class="form-status"></p>
         </form>
       </div>
     </section>
