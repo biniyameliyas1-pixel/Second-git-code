@@ -92,7 +92,8 @@
       <div class="container">
         <h2>Get In Touch</h2>
         <p>Have a question or want to discuss a project? We'd love to hear from you!</p>
-        <form id="contact-form" class="contact-form">
+        <form id="contact-form" class="contact-form" action="https://formspree.io/f/mrevqgkw" method="POST">
+          <input type="hidden" name="_subject" value="New contact form submission" />
           <div class="form-group">
             <label for="name">Name:</label>
             <input type="text" id="name" name="name" required>
@@ -100,7 +101,7 @@
           
           <div class="form-group">
             <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
+            <input type="email" id="email" name="_replyto" required>
           </div>
           
           <div class="form-group">
@@ -114,7 +115,6 @@
           </div>
           
           <button type="submit" class="submit-btn">Send Message</button>
-          <p id="form-status" class="form-status"></p>
         </form>
       </div>
     </section>
