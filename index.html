@@ -44,150 +44,255 @@
       <section class="form-card">
         <div class="stamp" aria-hidden="true">✝</div>
         <form class="counting-form">
-          <div class="form-row">
-            <label>
-              Church Name
-              <input type="text" name="church-name" placeholder="St. Mary Church" required>
-            </label>
-            <label>
-              Date
-              <input type="date" name="service-date" required>
-            </label>
-          </div>
-
-          <div class="form-row">
-            <label>
-              Service Type
-              <select name="service-type">
-                <option>Sunday Service</option>
-                <option>Midweek Prayer</option>
-                <option>Feast Day</option>
-                <option>Special Liturgy</option>
-                <option>Wedding / Baptism</option>
-              </select>
-            </label>
-            <label>
-              Priest / Leader
-              <input type="text" name="leader" placeholder="Abba ..." required>
-            </label>
-          </div>
-
-          <div class="form-row">
-            <label>
-              Service Start
-              <input type="time" name="start-time">
-            </label>
-            <label>
-              Service End
-              <input type="time" name="end-time">
-            </label>
-          </div>
-
-          <div class="form-row">
-            <label>
-              Choir / Cantor
-              <input type="text" name="choir" placeholder="Choir name or leader">
-            </label>
-            <label>
-              Bible Reading
-              <input type="text" name="bible-reading" placeholder="Book, chapter, verse">
-            </label>
-          </div>
-
-          <div class="stats-grid">
-            <label>
-              Men
-              <input type="number" name="men" min="0" value="0">
-            </label>
-            <label>
-              Women
-              <input type="number" name="women" min="0" value="0">
-            </label>
-            <label>
-              Youth
-              <input type="number" name="youth" min="0" value="0">
-            </label>
-            <label>
-              Children
-              <input type="number" name="children" min="0" value="0">
-            </label>
-          </div>
-
-          <div class="stats-grid">
-            <label>
-              Visitors
-              <input type="number" name="visitors" min="0" value="0">
-            </label>
-            <label>
-              Couples
-              <input type="number" name="couples" min="0" value="0">
-            </label>
-            <label>
-              Communion
-              <input type="number" name="communion" min="0" value="0">
-            </label>
-            <label>
-              Sunday School
-              <input type="number" name="sunday-school" min="0" value="0">
-            </label>
-          </div>
-
-          <div class="form-row">
-            <label>
-              Regular Offering (Birr)
-              <input type="number" name="regular-offering" min="0" value="0">
-            </label>
-            <label>
-              Special Offering (Birr)
-              <input type="number" name="special-offering" min="0" value="0">
-            </label>
-          </div>
-
-          <div class="form-row">
-            <label>
-              Tithe Collection (Birr)
-              <input type="number" name="tithe" id="tithe" min="0" value="0">
-            </label>
-            <label>
-              Total Attendance
-              <input type="number" name="total" id="total-attendance" min="0" value="0" readonly>
-            </label>
-          </div>
-
-          <section class="summary-panel" aria-label="Service summary details">
-            <h2>Service Summary</h2>
-            <div class="summary-grid">
-              <div class="summary-card">
-                <span>Attendance Total</span>
-                <strong id="summary-attendance">0</strong>
-              </div>
-              <div class="summary-card">
-                <span>Collected Offering</span>
-                <strong id="summary-offering">0</strong>
-              </div>
-              <div class="summary-card">
-                <span>Total Giving</span>
-                <strong id="summary-giving">0</strong>
-              </div>
-              <div class="summary-card">
-                <span>Communion Participants</span>
-                <strong id="summary-communion">0</strong>
-              </div>
+          <section class="form-section">
+            <h2>Personal Information</h2>
+            <div class="form-row">
+              <label>
+                Full Name
+                <input type="text" name="full-name" placeholder="Enter full name" required>
+              </label>
+              <label>
+                Father's Name
+                <input type="text" name="father-name" placeholder="Father's name">
+              </label>
+            </div>
+            <div class="form-row">
+              <label>
+                Grandfather's Name
+                <input type="text" name="grandfather-name" placeholder="Grandfather's name">
+              </label>
+              <label>
+                Gender
+                <select name="gender">
+                  <option value="">Select</option>
+                  <option>Male</option>
+                  <option>Female</option>
+                </select>
+              </label>
+            </div>
+            <div class="form-row">
+              <label>
+                Date of Birth
+                <input type="date" name="birth-date">
+              </label>
+              <label>
+                Age
+                <input type="number" name="age" min="0" placeholder="Auto-calculated">
+              </label>
+            </div>
+            <div class="form-row">
+              <label>
+                Phone Number
+                <input type="tel" name="phone" placeholder="09xxxxxxxx">
+              </label>
+              <label>
+                Email (Optional)
+                <input type="email" name="email" placeholder="name@example.com">
+              </label>
             </div>
           </section>
 
-          <label class="full-width">
-            Service Notes
-            <textarea name="notes" rows="4" placeholder="Special prayers, hospital visits, or follow-up details..."></textarea>
-          </label>
+          <section class="form-section">
+            <h2>Church Information</h2>
+            <div class="form-row">
+              <label>
+                Parish
+                <input type="text" name="parish" placeholder="Parish name">
+              </label>
+              <label>
+                Church Name
+                <input type="text" name="church-name" placeholder="Church name">
+              </label>
+            </div>
+            <div class="form-row">
+              <label>
+                Diocese
+                <input type="text" name="diocese" placeholder="Diocese name">
+              </label>
+              <label>
+                Baptized
+                <select name="baptized">
+                  <option value="">Select</option>
+                  <option>Yes</option>
+                  <option>No</option>
+                </select>
+              </label>
+            </div>
+            <div class="form-row">
+              <label>
+                Baptism Date
+                <input type="date" name="baptism-date">
+              </label>
+              <label>
+                Confession Father
+                <input type="text" name="confession-father" placeholder="Name">
+              </label>
+            </div>
+            <div class="form-row">
+              <label>
+                Holy Communion
+                <select name="holy-communion">
+                  <option value="">Select</option>
+                  <option>Yes</option>
+                  <option>No</option>
+                </select>
+              </label>
+              <label>
+                Choir Member
+                <select name="choir-member">
+                  <option value="">Select</option>
+                  <option>Yes</option>
+                  <option>No</option>
+                </select>
+              </label>
+            </div>
+            <div class="form-row">
+              <label>
+                Sunday School
+                <select name="sunday-school">
+                  <option value="">Select</option>
+                  <option>Yes</option>
+                  <option>No</option>
+                </select>
+              </label>
+              <label>
+                Volunteer
+                <select name="volunteer">
+                  <option value="">Select</option>
+                  <option>Yes</option>
+                  <option>No</option>
+                </select>
+              </label>
+            </div>
+          </section>
 
-          <label class="full-width">
-            Actions & Reminders
-            <textarea name="actions" rows="3" placeholder="Next steps, announcements, or ministry reminders..."></textarea>
-          </label>
+          <section class="form-section">
+            <h2>Family Information</h2>
+            <div class="form-row">
+              <label>
+                Marital Status
+                <select name="marital-status">
+                  <option value="">Select</option>
+                  <option>Single</option>
+                  <option>Married</option>
+                  <option>Widowed</option>
+                  <option>Divorced</option>
+                </select>
+              </label>
+              <label>
+                Family Head Name
+                <input type="text" name="family-head" placeholder="Family head">
+              </label>
+            </div>
+            <div class="form-row">
+              <label>
+                Number of Family Members
+                <input type="number" name="family-members" min="0" value="0">
+              </label>
+              <label>
+                Children
+                <input type="number" name="children" min="0" value="0">
+              </label>
+            </div>
+            <div class="form-row">
+              <label>
+                Spouse Name
+                <input type="text" name="spouse-name" placeholder="Spouse name">
+              </label>
+              <label>
+                National ID (Optional)
+                <input type="text" name="national-id" placeholder="ID number">
+              </label>
+            </div>
+          </section>
+
+          <section class="form-section">
+            <h2>Address Information</h2>
+            <div class="form-row">
+              <label>
+                Region
+                <input type="text" name="region" placeholder="Region">
+              </label>
+              <label>
+                Zone
+                <input type="text" name="zone" placeholder="Zone">
+              </label>
+            </div>
+            <div class="form-row">
+              <label>
+                Woreda
+                <input type="text" name="woreda" placeholder="Woreda">
+              </label>
+              <label>
+                Kebele
+                <input type="text" name="kebele" placeholder="Kebele">
+              </label>
+            </div>
+            <div class="form-row">
+              <label>
+                Village
+                <input type="text" name="village" placeholder="Village">
+              </label>
+              <label>
+                House Number
+                <input type="text" name="house-number" placeholder="House number">
+              </label>
+            </div>
+          </section>
+
+          <section class="form-section">
+            <h2>Occupation Information</h2>
+            <div class="form-row">
+              <label>
+                Occupation
+                <input type="text" name="occupation" placeholder="Job title">
+              </label>
+              <label>
+                Employer
+                <input type="text" name="employer" placeholder="Employer name">
+              </label>
+            </div>
+            <div class="form-row">
+              <label>
+                Education Level
+                <input type="text" name="education-level" placeholder="Education level">
+              </label>
+              <label>
+                Special Skills
+                <input type="text" name="skills" placeholder="Skills">
+              </label>
+            </div>
+          </section>
+
+          <section class="form-section">
+            <h2>Service Participation</h2>
+            <div class="checkbox-grid">
+              <label><input type="checkbox" name="service-choir"> Choir</label>
+              <label><input type="checkbox" name="service-youth"> Youth Association</label>
+              <label><input type="checkbox" name="service-sunday-teacher"> Sunday School Teacher</label>
+              <label><input type="checkbox" name="service-deacon"> Deacon</label>
+              <label><input type="checkbox" name="service-priest"> Priest</label>
+              <label><input type="checkbox" name="service-volunteer"> Volunteer</label>
+              <label><input type="checkbox" name="service-charity"> Charity Committee</label>
+              <label><input type="checkbox" name="service-women"> Women's Association</label>
+              <label><input type="checkbox" name="service-men"> Men's Association</label>
+            </div>
+          </section>
+
+          <section class="form-section">
+            <h2>Additional Information</h2>
+            <label class="full-width">
+              Health Notes (Optional)
+              <textarea name="health-notes" rows="3" placeholder="Any important health note"></textarea>
+            </label>
+            <label class="full-width">
+              Comments
+              <textarea name="comments" rows="3" placeholder="Add comments or remarks"></textarea>
+            </label>
+          </section>
 
           <div class="actions">
-            <button type="submit">Save Record</button>
+            <button type="submit">Save Member</button>
             <button type="reset" class="secondary">Clear Form</button>
           </div>
         </form>
