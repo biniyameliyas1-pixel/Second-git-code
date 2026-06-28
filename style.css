@@ -73,6 +73,42 @@ body {
   pointer-events: none;
 }
 
+.church-logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.85rem;
+  margin: 0 auto 1rem;
+  padding: 0.8rem 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+  backdrop-filter: blur(4px);
+}
+
+.church-logo-copy {
+  display: grid;
+  gap: 0.15rem;
+  text-align: left;
+}
+
+.church-logo-copy span {
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  opacity: 0.9;
+}
+
+.church-logo-copy strong {
+  font-size: 1rem;
+  letter-spacing: 0.08em;
+}
+
+.church-logo .church-badge {
+  margin: 0;
+}
+
 .church-badge {
   width: 60px;
   height: 60px;
