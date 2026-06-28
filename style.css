@@ -216,63 +216,6 @@ textarea {
   margin-top: 0.2rem;
 }
 
-.print-button {
-  background: transparent;
-  color: var(--accent);
-  border: 1px solid var(--accent);
-}
-
-@media print {
-  body {
-    background: white;
-    color: #000;
-    padding: 0;
-  }
-
-  .page-shell {
-    max-width: none;
-    margin: 0;
-    padding: 0;
-  }
-
-  .church-header,
-  .form-wrapper,
-  .summary-card,
-  .form-card {
-    box-shadow: none !important;
-    background: white !important;
-  }
-
-  .palm-banner,
-  .stamp,
-  .actions,
-  .print-button,
-  .secondary,
-  .church-verse {
-    display: none !important;
-  }
-
-  input,
-  select,
-  textarea {
-    border-color: #000;
-    background: transparent !important;
-    color: #000;
-  }
-
-  input[readonly] {
-    background: transparent !important;
-  }
-
-  .summary-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .summary-card {
-    border: 1px solid #000;
-  }
-}
-
 .summary-panel {
   padding: 1rem 0.4rem 0.6rem;
   border-top: 1px dashed rgba(123, 45, 30, 0.3);
@@ -331,6 +274,77 @@ button.secondary {
   background: transparent;
   color: var(--accent);
   border: 1px solid var(--accent);
+}
+
+.print-btn {
+  background: var(--green);
+  color: #fff;
+  border-color: var(--green);
+}
+
+@media print {
+  body {
+    background: #fff;
+    color: #000;
+    padding: 0;
+  }
+
+  .page-shell,
+  .form-wrapper,
+  .church-header,
+  .form-card,
+  .summary-card {
+    box-shadow: none;
+    background: transparent;
+  }
+
+  .page-shell {
+    max-width: 100%;
+    margin: 0;
+  }
+
+  .church-header {
+    border-radius: 0;
+    padding: 1.5rem 1rem 1rem;
+  }
+
+  .palm-banner,
+  .stamp,
+  .actions,
+  .print-btn,
+  .secondary {
+    display: none !important;
+  }
+
+  input,
+  select,
+  textarea {
+    border-color: #999;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  textarea {
+    min-height: 80px;
+  }
+
+  .form-card {
+    padding: 0;
+    border-top: none;
+  }
+
+  .summary-panel {
+    border-top: 1px solid #999;
+  }
+
+  .summary-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .summary-card {
+    border: 1px solid #999;
+    background: #f7f7f7;
+  }
 }
 
 @media (max-width: 700px) {

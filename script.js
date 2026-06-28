@@ -43,19 +43,16 @@ function updateTotals() {
   fields.summaryCommunion.textContent = toNumber(fields.communion.value);
 }
 
-const printButton = document.querySelector('#print-button');
-
 if (form) {
   form.addEventListener('input', updateTotals);
   form.addEventListener('reset', () => {
     window.requestAnimationFrame(updateTotals);
   });
-}
 
-if (printButton) {
-  printButton.addEventListener('click', () => {
-    window.print();
-  });
+  const printButton = document.querySelector('.print-btn');
+  if (printButton) {
+    printButton.addEventListener('click', () => window.print());
+  }
 }
 
 updateTotals();
