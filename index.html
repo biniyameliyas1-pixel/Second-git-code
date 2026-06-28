@@ -62,11 +62,35 @@
                 <option>Sunday Service</option>
                 <option>Midweek Prayer</option>
                 <option>Feast Day</option>
+                <option>Special Liturgy</option>
+                <option>Wedding / Baptism</option>
               </select>
             </label>
             <label>
               Priest / Leader
               <input type="text" name="leader" placeholder="Abba ..." required>
+            </label>
+          </div>
+
+          <div class="form-row">
+            <label>
+              Service Start
+              <input type="time" name="start-time">
+            </label>
+            <label>
+              Service End
+              <input type="time" name="end-time">
+            </label>
+          </div>
+
+          <div class="form-row">
+            <label>
+              Choir / Cantor
+              <input type="text" name="choir" placeholder="Choir name or leader">
+            </label>
+            <label>
+              Bible Reading
+              <input type="text" name="bible-reading" placeholder="Book, chapter, verse">
             </label>
           </div>
 
@@ -89,29 +113,88 @@
             </label>
           </div>
 
-          <div class="form-row">
+          <div class="stats-grid">
             <label>
-              Offering (Birr)
-              <input type="number" name="offering" min="0" value="0">
+              Visitors
+              <input type="number" name="visitors" min="0" value="0">
             </label>
             <label>
-              Total Attendance
-              <input type="number" name="total" min="0" value="0">
+              Couples
+              <input type="number" name="couples" min="0" value="0">
+            </label>
+            <label>
+              Communion
+              <input type="number" name="communion" min="0" value="0">
+            </label>
+            <label>
+              Sunday School
+              <input type="number" name="sunday-school" min="0" value="0">
             </label>
           </div>
 
+          <div class="form-row">
+            <label>
+              Regular Offering (Birr)
+              <input type="number" name="regular-offering" min="0" value="0">
+            </label>
+            <label>
+              Special Offering (Birr)
+              <input type="number" name="special-offering" min="0" value="0">
+            </label>
+          </div>
+
+          <div class="form-row">
+            <label>
+              Tithe Collection (Birr)
+              <input type="number" name="tithe" id="tithe" min="0" value="0">
+            </label>
+            <label>
+              Total Attendance
+              <input type="number" name="total" id="total-attendance" min="0" value="0" readonly>
+            </label>
+          </div>
+
+          <section class="summary-panel" aria-label="Service summary details">
+            <h2>Service Summary</h2>
+            <div class="summary-grid">
+              <div class="summary-card">
+                <span>Attendance Total</span>
+                <strong id="summary-attendance">0</strong>
+              </div>
+              <div class="summary-card">
+                <span>Collected Offering</span>
+                <strong id="summary-offering">0</strong>
+              </div>
+              <div class="summary-card">
+                <span>Total Giving</span>
+                <strong id="summary-giving">0</strong>
+              </div>
+              <div class="summary-card">
+                <span>Communion Participants</span>
+                <strong id="summary-communion">0</strong>
+              </div>
+            </div>
+          </section>
+
           <label class="full-width">
-            Prayer Notes
-            <textarea name="notes" rows="4" placeholder="Add any special notes for the service..."></textarea>
+            Service Notes
+            <textarea name="notes" rows="4" placeholder="Special prayers, hospital visits, or follow-up details..."></textarea>
+          </label>
+
+          <label class="full-width">
+            Actions & Reminders
+            <textarea name="actions" rows="3" placeholder="Next steps, announcements, or ministry reminders..."></textarea>
           </label>
 
           <div class="actions">
-            <button type="submit">Save Count</button>
-            <button type="reset" class="secondary">Clear</button>
+            <button type="submit">Save Record</button>
+            <button type="reset" class="secondary">Clear Form</button>
+            <button type="button" class="secondary print-button" id="print-button">Print Ledger</button>
           </div>
         </form>
       </section>
     </main>
   </div>
+  <script src="script.js"></script>
 </body>
 </html>
