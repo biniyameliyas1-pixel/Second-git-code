@@ -28,20 +28,46 @@
 
     <main class="form-wrapper">
       <section class="palm-banner" aria-hidden="true">
-        <svg viewBox="0 0 600 180" role="img" aria-label="Palm tree pattern">
-          <rect width="600" height="180" fill="none"></rect>
-          <path d="M80 150 C95 95, 110 70, 128 40" stroke="#4f6b3d" stroke-width="6" fill="none" stroke-linecap="round"></path>
-          <path d="M88 150 C105 110, 122 95, 142 67" stroke="#5e7b44" stroke-width="5" fill="none" stroke-linecap="round"></path>
-          <path d="M90 150 C110 125, 118 110, 132 92" stroke="#6e9052" stroke-width="4" fill="none" stroke-linecap="round"></path>
-          <rect x="108" y="140" width="10" height="28" rx="3" fill="#6f4423"></rect>
-          <path d="M480 150 C495 95, 510 70, 528 40" stroke="#4f6b3d" stroke-width="6" fill="none" stroke-linecap="round"></path>
-          <path d="M488 150 C505 110, 522 95, 542 67" stroke="#5e7b44" stroke-width="5" fill="none" stroke-linecap="round"></path>
-          <path d="M490 150 C510 125, 518 110, 532 92" stroke="#6e9052" stroke-width="4" fill="none" stroke-linecap="round"></path>
-          <rect x="508" y="140" width="10" height="28" rx="3" fill="#6f4423"></rect>
-          <path d="M250 150 C265 110, 275 90, 286 60" stroke="#4f6b3d" stroke-width="6" fill="none" stroke-linecap="round"></path>
-          <path d="M260 150 C275 125, 288 105, 304 76" stroke="#5e7b44" stroke-width="5" fill="none" stroke-linecap="round"></path>
-          <path d="M268 150 C282 135, 292 118, 300 100" stroke="#6e9052" stroke-width="4" fill="none" stroke-linecap="round"></path>
-          <rect x="280" y="140" width="10" height="28" rx="3" fill="#6f4423"></rect>
+        <svg viewBox="0 0 600 180" role="img" aria-label="Decorative palm tree pattern">
+          <defs>
+            <linearGradient id="palmGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#f6e6b8"></stop>
+              <stop offset="100%" stop-color="#d3b16d"></stop>
+            </linearGradient>
+          </defs>
+          <rect width="600" height="180" rx="20" fill="url(#palmGlow)"></rect>
+          <circle cx="495" cy="44" r="30" fill="#f4d48a" opacity="0.75"></circle>
+          <path d="M48 152 C110 122, 150 102, 204 80" stroke="#4f6b3d" stroke-width="3" fill="none" stroke-linecap="round"></path>
+          <path d="M388 152 C456 118, 500 98, 554 78" stroke="#4f6b3d" stroke-width="3" fill="none" stroke-linecap="round"></path>
+          <g transform="translate(72 24)">
+            <rect x="34" y="98" width="12" height="42" rx="5" fill="#6f4423"></rect>
+            <path d="M40 98 C18 74, 8 56, 4 24 C20 36, 28 48, 34 74 Z" fill="#4f6b3d"></path>
+            <path d="M40 98 C62 74, 72 56, 76 24 C60 36, 52 48, 46 74 Z" fill="#5b7d41"></path>
+            <path d="M40 98 C24 70, 18 50, 16 18 C24 30, 30 42, 34 64 Z" fill="#6d9050"></path>
+            <path d="M40 98 C56 70, 62 50, 64 18 C56 30, 50 42, 46 64 Z" fill="#6d9050"></path>
+            <path d="M40 98 C30 80, 24 66, 20 42 C28 52, 34 60, 40 72 Z" fill="#7ca55b"></path>
+            <path d="M40 98 C50 80, 56 66, 60 42 C52 52, 46 60, 40 72 Z" fill="#7ca55b"></path>
+          </g>
+          <g transform="translate(252 28)">
+            <rect x="34" y="98" width="12" height="42" rx="5" fill="#6f4423"></rect>
+            <path d="M40 98 C20 76, 10 56, 6 28 C20 38, 28 48, 34 76 Z" fill="#4f6b3d"></path>
+            <path d="M40 98 C60 76, 70 56, 74 28 C60 38, 52 48, 46 76 Z" fill="#5b7d41"></path>
+            <path d="M40 98 C24 70, 18 50, 16 20 C24 32, 30 42, 34 62 Z" fill="#6d9050"></path>
+            <path d="M40 98 C56 70, 62 50, 64 20 C56 32, 50 42, 46 62 Z" fill="#6d9050"></path>
+            <path d="M40 98 C30 82, 24 68, 20 44 C28 54, 34 62, 40 74 Z" fill="#7ca55b"></path>
+            <path d="M40 98 C50 82, 56 68, 60 44 C52 54, 46 62, 40 74 Z" fill="#7ca55b"></path>
+          </g>
+          <g transform="translate(430 22)">
+            <rect x="34" y="98" width="12" height="42" rx="5" fill="#6f4423"></rect>
+            <path d="M40 98 C18 74, 8 56, 4 24 C20 36, 28 48, 34 74 Z" fill="#4f6b3d"></path>
+            <path d="M40 98 C62 74, 72 56, 76 24 C60 36, 52 48, 46 74 Z" fill="#5b7d41"></path>
+            <path d="M40 98 C24 70, 18 50, 16 18 C24 30, 30 42, 34 64 Z" fill="#6d9050"></path>
+            <path d="M40 98 C56 70, 62 50, 64 18 C56 30, 50 42, 46 64 Z" fill="#6d9050"></path>
+            <path d="M40 98 C30 80, 24 66, 20 42 C28 52, 34 60, 40 72 Z" fill="#7ca55b"></path>
+            <path d="M40 98 C50 80, 56 66, 60 42 C52 52, 46 60, 40 72 Z" fill="#7ca55b"></path>
+          </g>
+          <path d="M120 148 C144 132, 160 128, 176 126" stroke="#8f6a2a" stroke-width="2.5" opacity="0.8" fill="none" stroke-linecap="round"></path>
+          <path d="M430 148 C450 132, 466 128, 482 126" stroke="#8f6a2a" stroke-width="2.5" opacity="0.8" fill="none" stroke-linecap="round"></path>
         </svg>
       </section>
 

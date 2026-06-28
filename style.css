@@ -139,17 +139,28 @@ body {
 }
 
 .palm-banner {
-  background:
-    linear-gradient(180deg, #ebdfbf 0%, #d7bb7d 100%);
-    repeating-linear-gradient(90deg, rgba(79,107,61,0.08) 0 2px, transparent 2px 20px);
-  padding: 0.8rem 1rem 0;
-  border-bottom: 2px solid var(--border);
+  background: linear-gradient(180deg, #efe2b8 0%, #d7b16e 100%);
+  padding: 1rem 1rem 0.7rem;
+  border-bottom: 3px solid rgba(79,107,61,0.25);
+  position: relative;
+  overflow: hidden;
+}
+
+.palm-banner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(255,255,255,0.3) 1px, transparent 1px);
+  background-size: 16px 16px;
+  opacity: 0.35;
+  pointer-events: none;
 }
 
 .palm-banner svg {
   display: block;
   width: 100%;
   height: auto;
+  filter: drop-shadow(0 8px 14px rgba(57, 36, 16, 0.12));
 }
 
 .form-card {
