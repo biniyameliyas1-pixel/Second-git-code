@@ -18,29 +18,45 @@ const fields = {
 };
 
 function toNumber(value) {
-  return Number(value) || 0;
+  const parsedValue = Number(value);
+  return Number.isFinite(parsedValue) ? parsedValue : 0;
 }
 
 function updateTotals() {
-  const attendance = [
+  const attendanceInputs = [
     fields.men,
     fields.women,
     fields.youth,
     fields.children,
     fields.visitors,
     fields.couples
-  ].reduce((sum, input) => sum + toNumber(input.value), 0);
+  ].filter(Boolean);
+  const attendance = attendanceInputs.reduce((sum, input) => sum + toNumber(input.value), 0);
 
-  const offeringValue = toNumber(fields.offering.value);
-  const specialValue = toNumber(fields.specialOffering.value);
-  const titheValue = toNumber(fields.tithe.value);
+  const offeringValue = toNumber(fields.offering?.value);
+  const specialValue = toNumber(fields.specialOffering?.value);
+  const titheValue = toNumber(fields.tithe?.value);
   const totalGiving = offeringValue + specialValue + titheValue;
 
-  fields.totalAttendance.value = attendance;
-  fields.summaryAttendance.textContent = attendance;
-  fields.summaryOffering.textContent = totalGiving.toFixed(2);
-  fields.summaryGiving.textContent = totalGiving.toFixed(2);
-  fields.summaryCommunion.textContent = toNumber(fields.communion.value);
+  if (fields.totalAttendance) {
+    fields.totalAttendance.value = attendance;
+  }
+
+  if (fields.summaryAttendance) {
+    fields.summaryAttendance.textContent = attendance;
+  }
+
+  if (fields.summaryOffering) {
+    fields.summaryOffering.textContent = totalGiving.toFixed(2);
+  }
+
+  if (fields.summaryGiving) {
+    fields.summaryGiving.textContent = totalGiving.toFixed(2);
+  }
+
+  if (fields.summaryCommunion) {
+    fields.summaryCommunion.textContent = toNumber(fields.communion?.value);
+  }
 }
 
 function setLanguage(lang) {
