@@ -50,9 +50,34 @@ if (form) {
   });
 
   const printButton = document.querySelector('.print-btn');
+  const messageBox = document.querySelector('#form-message');
+
   if (printButton) {
     printButton.addEventListener('click', () => window.print());
   }
+
+  form.addEventListener('submit', async (event) => {
+    event.preventDefault();
+
+    const formData = new FormData(form);
+    const response = await fetch(form.action, {
+      method: 'POST',
+      body: formData,
+      headers: {
+        'Accept': 'application/json'
+      }
+    });
+
+    if (response.ok) {
+      messageBox.textContent = 'Thank you! Your church member registration has been submitted.';
+      messageBox.className = 'form-message success';
+      form.reset();
+      updateTotals();
+    } else {
+      messageBox.textContent = 'Sorry, something went wrong. Please try again.';
+      messageBox.className = 'form-message error';
+    }
+  });
 }
 
 updateTotals();
