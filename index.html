@@ -10,16 +10,20 @@
 <body>
   <div class="page-shell">
     <header class="church-header">
+      <div class="lang-switcher">
+        <button type="button" class="lang-btn active" data-lang="en">EN</button>
+        <button type="button" class="lang-btn" data-lang="am">AM</button>
+      </div>
       <div class="church-badge" aria-hidden="true">
         <svg viewBox="0 0 64 64" role="img" aria-label="Cross emblem">
           <rect x="28" y="8" width="8" height="48" rx="3"></rect>
           <rect x="12" y="24" width="40" height="8" rx="3"></rect>
         </svg>
       </div>
-      <p class="church-tag">Ethiopian Orthodox Church</p>
-      <h1>Church Counting Form</h1>
-      <p class="church-subtitle">Simple service attendance and offering record</p>
-      <p class="church-verse">“With order, reverence, and thanksgiving.”</p>
+      <p class="church-tag" data-en="Ethiopian Orthodox Church" data-am="የኢትዮጵያ ኦርቶዶክስ ቤ/ክርስቲያን">Ethiopian Orthodox Church</p>
+      <h1 data-en="Church Counting Form" data-am="የቤ/ክርስቲያን መቆጣጠሪያ ቅጽ">Church Counting Form</h1>
+      <p class="church-subtitle" data-en="Simple service attendance and offering record" data-am="ቀላል የአገልግሎት ተሳታፊ እና ልገሳ መዝገብ">Simple service attendance and offering record</p>
+      <p class="church-verse" data-en="“With order, reverence, and thanksgiving.”" data-am="“በቅደም ተከተል፣ በአክብሮት እና በምስጋና”">“With order, reverence, and thanksgiving.”</p>
     </header>
 
     <main class="form-wrapper">
@@ -46,24 +50,24 @@
         <form class="counting-form" action="https://formspree.io/f/xojowklz" method="POST">
           <input type="hidden" name="_subject" value="New Church Member Registration">
           <section class="form-section">
-            <h2>Personal Information</h2>
+            <h2 data-en="Personal Information" data-am="የግል መረጃ">Personal Information</h2>
             <div class="form-row">
               <label>
-                Full Name
+                <span data-en="Full Name" data-am="ሙሉ ስም">Full Name</span>
                 <input type="text" name="full-name" placeholder="Enter full name" required>
               </label>
               <label>
-                Father's Name
+                <span data-en="Father's Name" data-am="የአባት ስም">Father's Name</span>
                 <input type="text" name="father-name" placeholder="Father's name">
               </label>
             </div>
             <div class="form-row">
               <label>
-                Grandfather's Name
+                <span data-en="Grandfather's Name" data-am="የአያት ስም">Grandfather's Name</span>
                 <input type="text" name="grandfather-name" placeholder="Grandfather's name">
               </label>
               <label>
-                Gender
+                <span data-en="Gender" data-am="ፆታ">Gender</span>
                 <select name="gender">
                   <option value="">Select</option>
                   <option>Male</option>
@@ -73,45 +77,45 @@
             </div>
             <div class="form-row">
               <label>
-                Date of Birth
+                <span data-en="Date of Birth" data-am="የትውልድ ቀን">Date of Birth</span>
                 <input type="date" name="birth-date">
               </label>
               <label>
-                Age
+                <span data-en="Age" data-am="ዕድሜ">Age</span>
                 <input type="number" name="age" min="0" placeholder="Auto-calculated">
               </label>
             </div>
             <div class="form-row">
               <label>
-                Phone Number
+                <span data-en="Phone Number" data-am="ስልክ ቁጥር">Phone Number</span>
                 <input type="tel" name="phone" placeholder="09xxxxxxxx">
               </label>
               <label>
-                Email (Optional)
+                <span data-en="Email (Optional)" data-am="ኢሜል (በአማራጭ)">Email (Optional)</span>
                 <input type="email" name="email" placeholder="name@example.com">
               </label>
             </div>
           </section>
 
           <section class="form-section">
-            <h2>Church Information</h2>
+            <h2 data-en="Church Information" data-am="የቤ/ክርስቲያን መረጃ">Church Information</h2>
             <div class="form-row">
               <label>
-                Parish
+                <span data-en="Parish" data-am="ቤ/ክርስቲያን አካባቢ">Parish</span>
                 <input type="text" name="parish" placeholder="Parish name">
               </label>
               <label>
-                Church Name
+                <span data-en="Church Name" data-am="የቤ/ክርስቲያን ስም">Church Name</span>
                 <input type="text" name="church-name" placeholder="Church name">
               </label>
             </div>
             <div class="form-row">
               <label>
-                Diocese
+                <span data-en="Diocese" data-am="ዲዮሴስ">Diocese</span>
                 <input type="text" name="diocese" placeholder="Diocese name">
               </label>
               <label>
-                Baptized
+                <span data-en="Baptized" data-am="መጠመቂያ የተደረገ">Baptized</span>
                 <select name="baptized">
                   <option value="">Select</option>
                   <option>Yes</option>
@@ -121,17 +125,17 @@
             </div>
             <div class="form-row">
               <label>
-                Baptism Date
+                <span data-en="Baptism Date" data-am="የመጠመቂያ ቀን">Baptism Date</span>
                 <input type="date" name="baptism-date">
               </label>
               <label>
-                Confession Father
+                <span data-en="Confession Father" data-am="የምስጋና አባት">Confession Father</span>
                 <input type="text" name="confession-father" placeholder="Name">
               </label>
             </div>
             <div class="form-row">
               <label>
-                Holy Communion
+                <span data-en="Holy Communion" data-am="መቅደስ ምግባር">Holy Communion</span>
                 <select name="holy-communion">
                   <option value="">Select</option>
                   <option>Yes</option>
@@ -139,7 +143,7 @@
                 </select>
               </label>
               <label>
-                Choir Member
+                <span data-en="Choir Member" data-am="የመዘምራን አባል">Choir Member</span>
                 <select name="choir-member">
                   <option value="">Select</option>
                   <option>Yes</option>
@@ -149,7 +153,7 @@
             </div>
             <div class="form-row">
               <label>
-                Sunday School
+                <span data-en="Sunday School" data-am="የእሑድ ት/ቤት">Sunday School</span>
                 <select name="sunday-school">
                   <option value="">Select</option>
                   <option>Yes</option>
@@ -157,7 +161,7 @@
                 </select>
               </label>
               <label>
-                Volunteer
+                <span data-en="Volunteer" data-am="በፈቃደኝነት አገልጋይ">Volunteer</span>
                 <select name="volunteer">
                   <option value="">Select</option>
                   <option>Yes</option>
@@ -168,10 +172,10 @@
           </section>
 
           <section class="form-section">
-            <h2>Family Information</h2>
+            <h2 data-en="Family Information" data-am="የቤተሰብ መረጃ">Family Information</h2>
             <div class="form-row">
               <label>
-                Marital Status
+                <span data-en="Marital Status" data-am="የጋብቻ ሁኔታ">Marital Status</span>
                 <select name="marital-status">
                   <option value="">Select</option>
                   <option>Single</option>
@@ -181,13 +185,13 @@
                 </select>
               </label>
               <label>
-                Family Head Name
+                <span data-en="Family Head Name" data-am="የቤተሰብ አለቃ ስም">Family Head Name</span>
                 <input type="text" name="family-head" placeholder="Family head">
               </label>
             </div>
             <div class="form-row">
               <label>
-                Number of Family Members
+                <span data-en="Number of Family Members" data-am="የቤተሰብ አባላት ብዛት">Number of Family Members</span>
                 <input type="number" name="family-members" min="0" value="0">
               </label>
               <label>
@@ -197,105 +201,105 @@
             </div>
             <div class="form-row">
               <label>
-                Spouse Name
+                <span data-en="Spouse Name" data-am="የባለቤት ስም">Spouse Name</span>
                 <input type="text" name="spouse-name" placeholder="Spouse name">
               </label>
               <label>
-                National ID (Optional)
+                <span data-en="National ID (Optional)" data-am="ብሔራዊ መታወቂያ (በአማራጭ)">National ID (Optional)</span>
                 <input type="text" name="national-id" placeholder="ID number">
               </label>
             </div>
           </section>
 
           <section class="form-section">
-            <h2>Address Information</h2>
+            <h2 data-en="Address Information" data-am="የአድራሻ መረጃ">Address Information</h2>
             <div class="form-row">
               <label>
-                Region
+                <span data-en="Region" data-am="ክልል">Region</span>
                 <input type="text" name="region" placeholder="Region">
               </label>
               <label>
-                Zone
+                <span data-en="Zone" data-am="ዞን">Zone</span>
                 <input type="text" name="zone" placeholder="Zone">
               </label>
             </div>
             <div class="form-row">
               <label>
-                Woreda
+                <span data-en="Woreda" data-am="ወረዳ">Woreda</span>
                 <input type="text" name="woreda" placeholder="Woreda">
               </label>
               <label>
-                Kebele
+                <span data-en="Kebele" data-am="ቀበሌ">Kebele</span>
                 <input type="text" name="kebele" placeholder="Kebele">
               </label>
             </div>
             <div class="form-row">
               <label>
-                Village
+                <span data-en="Village" data-am="መንደር">Village</span>
                 <input type="text" name="village" placeholder="Village">
               </label>
               <label>
-                House Number
+                <span data-en="House Number" data-am="የቤት ቁጥር">House Number</span>
                 <input type="text" name="house-number" placeholder="House number">
               </label>
             </div>
           </section>
 
           <section class="form-section">
-            <h2>Occupation Information</h2>
+            <h2 data-en="Occupation Information" data-am="የስራ መረጃ">Occupation Information</h2>
             <div class="form-row">
               <label>
-                Occupation
+                <span data-en="Occupation" data-am="ስራ">Occupation</span>
                 <input type="text" name="occupation" placeholder="Job title">
               </label>
               <label>
-                Employer
+                <span data-en="Employer" data-am="አሰሪ">Employer</span>
                 <input type="text" name="employer" placeholder="Employer name">
               </label>
             </div>
             <div class="form-row">
               <label>
-                Education Level
+                <span data-en="Education Level" data-am="የትምህርት ደረጃ">Education Level</span>
                 <input type="text" name="education-level" placeholder="Education level">
               </label>
               <label>
-                Special Skills
+                <span data-en="Special Skills" data-am="ልዩ ክህሎቶች">Special Skills</span>
                 <input type="text" name="skills" placeholder="Skills">
               </label>
             </div>
           </section>
 
           <section class="form-section">
-            <h2>Service Participation</h2>
+            <h2 data-en="Service Participation" data-am="የአገልግሎት ተሳትፎ">Service Participation</h2>
             <div class="checkbox-grid">
-              <label><input type="checkbox" name="service-choir"> Choir</label>
-              <label><input type="checkbox" name="service-youth"> Youth Association</label>
-              <label><input type="checkbox" name="service-sunday-teacher"> Sunday School Teacher</label>
-              <label><input type="checkbox" name="service-deacon"> Deacon</label>
-              <label><input type="checkbox" name="service-priest"> Priest</label>
-              <label><input type="checkbox" name="service-volunteer"> Volunteer</label>
-              <label><input type="checkbox" name="service-charity"> Charity Committee</label>
-              <label><input type="checkbox" name="service-women"> Women's Association</label>
-              <label><input type="checkbox" name="service-men"> Men's Association</label>
+              <label><input type="checkbox" name="service-choir"> <span data-en="Choir" data-am="መዘምራን">Choir</span></label>
+              <label><input type="checkbox" name="service-youth"> <span data-en="Youth Association" data-am="ወጣቶች ማህበር">Youth Association</span></label>
+              <label><input type="checkbox" name="service-sunday-teacher"> <span data-en="Sunday School Teacher" data-am="የእሑድ ት/ቤት መምህር">Sunday School Teacher</span></label>
+              <label><input type="checkbox" name="service-deacon"> <span data-en="Deacon" data-am="ዲያቆን">Deacon</span></label>
+              <label><input type="checkbox" name="service-priest"> <span data-en="Priest" data-am="ካህን">Priest</span></label>
+              <label><input type="checkbox" name="service-volunteer"> <span data-en="Volunteer" data-am="በፈቃደኝነት አገልጋይ">Volunteer</span></label>
+              <label><input type="checkbox" name="service-charity"> <span data-en="Charity Committee" data-am="የበጎ አድራጎት ኮሚቴ">Charity Committee</span></label>
+              <label><input type="checkbox" name="service-women"> <span data-en="Women's Association" data-am="የሴቶች ማህበር">Women's Association</span></label>
+              <label><input type="checkbox" name="service-men"> <span data-en="Men's Association" data-am="የወንዶች ማህበር">Men's Association</span></label>
             </div>
           </section>
 
           <section class="form-section">
-            <h2>Additional Information</h2>
+            <h2 data-en="Additional Information" data-am="ተጨማሪ መረጃ">Additional Information</h2>
             <label class="full-width">
-              Health Notes (Optional)
+              <span data-en="Health Notes (Optional)" data-am="የጤና ማስታወሻዎች (በአማራጭ)">Health Notes (Optional)</span>
               <textarea name="health-notes" rows="3" placeholder="Any important health note"></textarea>
             </label>
             <label class="full-width">
-              Comments
+              <span data-en="Comments" data-am="አስተያየቶች">Comments</span>
               <textarea name="comments" rows="3" placeholder="Add comments or remarks"></textarea>
             </label>
           </section>
 
           <div class="actions">
-            <button type="submit">Save Member</button>
-            <button type="button" class="secondary print-btn">Print Form</button>
-            <button type="reset" class="secondary">Clear Form</button>
+            <button type="submit" data-en="Save Member" data-am="አባል ይመዝግቡ">Save Member</button>
+            <button type="button" class="secondary print-btn" data-en="Print Form" data-am="ቅጽ አትም">Print Form</button>
+            <button type="reset" class="secondary" data-en="Clear Form" data-am="ቅጽ አጽዳ">Clear Form</button>
           </div>
           <p class="form-message" id="form-message" aria-live="polite"></p>
         </form>

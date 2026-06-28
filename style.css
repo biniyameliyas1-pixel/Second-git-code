@@ -40,6 +40,28 @@ body {
   overflow: hidden;
 }
 
+.lang-switcher {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.4rem;
+  margin-bottom: 0.7rem;
+}
+
+.lang-btn {
+  border: 1px solid rgba(255,255,255,0.4);
+  background: rgba(255,255,255,0.15);
+  color: #fff;
+  padding: 0.35rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.lang-btn.active {
+  background: #fff;
+  color: var(--accent);
+}
+
 .church-header::before {
   content: "";
   position: absolute;

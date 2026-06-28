@@ -43,6 +43,24 @@ function updateTotals() {
   fields.summaryCommunion.textContent = toNumber(fields.communion.value);
 }
 
+function setLanguage(lang) {
+  document.documentElement.lang = lang === 'am' ? 'am' : 'en';
+  document.querySelectorAll('[data-en]').forEach((element) => {
+    const text = element.getAttribute(`data-${lang}`);
+    if (text) {
+      if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA' || element.tagName === 'SELECT' || element.tagName === 'BUTTON') {
+        element.value = text;
+      } else {
+        element.textContent = text;
+      }
+    }
+  });
+
+  document.querySelectorAll('.lang-btn').forEach((button) => {
+    button.classList.toggle('active', button.dataset.lang === lang);
+  });
+}
+
 if (form) {
   form.addEventListener('input', updateTotals);
   form.addEventListener('reset', () => {
@@ -80,4 +98,9 @@ if (form) {
   });
 }
 
+document.querySelectorAll('.lang-btn').forEach((button) => {
+  button.addEventListener('click', () => setLanguage(button.dataset.lang));
+});
+
+setLanguage('en');
 updateTotals();
