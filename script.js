@@ -37,17 +37,12 @@ function setLanguage(lang) {
     }
 
     if (tagName === 'LABEL') {
-      const firstNode = element.firstChild;
-      if (firstNode && firstNode.nodeType === Node.TEXT_NODE) {
-        firstNode.textContent = text;
+      const textNode = Array.from(element.childNodes).find((node) => node.nodeType === Node.TEXT_NODE);
+      if (textNode) {
+        textNode.textContent = text;
       } else {
         element.insertBefore(document.createTextNode(text), element.firstChild);
       }
-      return;
-    }
-
-    if (tagName === 'BUTTON') {
-      element.textContent = text;
       return;
     }
 
