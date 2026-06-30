@@ -25,7 +25,7 @@ html {
 
 body {
   min-height: 100vh;
-  background: linear-gradient(180deg, #fff8ee 0%, var(--bg) 100%);
+  background: linear-gradient(180deg, #fff4e5 0%, #f4ead1 50%, var(--bg) 100%);
   color: var(--text);
   font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   line-height: 1.6;
@@ -44,7 +44,7 @@ body {
   background: linear-gradient(180deg, #fff9f0 0%, #f6e7cf 100%);
   border: 8px solid transparent;
   border-image: linear-gradient(90deg, #137a1f 0%, #137a1f 33%, #e0a12b 33%, #e0a12b 66%, #b72b2b 66%, #b72b2b 100%) 1;
-  box-shadow: 0 24px 64px rgba(77, 56, 25, 0.12);
+  box-shadow: 0 24px 64px rgba(139, 96, 42, 0.16);
   overflow: hidden;
 }
 
@@ -182,6 +182,22 @@ body {
   gap: 0.75rem;
 }
 
+.palm-banner {
+  margin: 2rem 0 0;
+  overflow: hidden;
+  border-radius: 28px;
+  position: relative;
+  background: linear-gradient(180deg, rgba(236, 196, 103, 0.18) 0%, rgba(255, 241, 205, 0.65) 55%, rgba(255, 255, 255, 0.2) 100%);
+  padding: 1.4rem 1.6rem;
+}
+
+.palm-banner svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  opacity: 0.95;
+}
+
 .form-wrapper {
   margin-top: 1.75rem;
 }
@@ -192,7 +208,7 @@ body {
   overflow: hidden;
   border: 6px solid transparent;
   border-image: linear-gradient(90deg, #137a1f 0%, #137a1f 33%, #e0a12b 33%, #e0a12b 66%, #b72b2b 66%, #b72b2b 100%) 1;
-  box-shadow: 0 24px 64px rgba(77, 56, 25, 0.12);
+  box-shadow: 0 24px 64px rgba(139, 96, 42, 0.16);
   padding: 2rem;
 }
 
@@ -226,6 +242,7 @@ textarea {
   color: var(--text);
   background: var(--surface-muted);
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 10px 24px rgba(139, 96, 42, 0.08);
 }
 
 input::placeholder,
@@ -278,7 +295,7 @@ textarea {
   border: 1px solid rgba(187, 139, 47, 0.16);
   border-radius: 24px;
   padding: 1.5rem;
-  background: rgba(255, 244, 222, 0.9);
+  background: rgba(249, 236, 205, 0.98);
   position: relative;
 }
 
