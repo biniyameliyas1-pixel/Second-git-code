@@ -37,7 +37,7 @@ body {
   margin: 0 auto;
 }
 
-.church-header {
+.brand-header {
   position: relative;
   padding: 2rem;
   border-radius: 28px;
@@ -47,7 +47,7 @@ body {
   overflow: hidden;
 }
 
-.church-header::before {
+.brand-header::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -94,14 +94,14 @@ body {
   border-color: transparent;
 }
 
-.church-logo {
+.brand-logo {
   display: flex;
   gap: 1rem;
   align-items: center;
   z-index: 1;
 }
 
-.church-logo-image {
+.brand-logo-image {
   width: 84px;
   height: 84px;
   border-radius: 24px;
@@ -111,24 +111,24 @@ body {
   object-fit: contain;
 }
 
-.church-logo-copy {
+.brand-logo-copy {
   display: grid;
   gap: 0.15rem;
 }
 
-.church-logo-copy span {
+.brand-logo-copy span {
   text-transform: uppercase;
   letter-spacing: 0.16em;
   font-size: 0.82rem;
   color: var(--accent);
 }
 
-.church-logo-copy strong {
+.brand-logo-copy strong {
   font-size: clamp(1.35rem, 1.5vw, 1.8rem);
   letter-spacing: 0.01em;
 }
 
-.church-tag {
+.brand-tag {
   color: var(--muted);
   text-transform: uppercase;
   letter-spacing: 0.16em;
@@ -144,8 +144,8 @@ body {
   z-index: 1;
 }
 
-.church-subtitle,
-.church-verse {
+.brand-subtitle,
+.brand-note {
   margin-top: 0.8rem;
   color: var(--muted);
   line-height: 1.75;
