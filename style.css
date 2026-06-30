@@ -1,11 +1,15 @@
 :root {
-  --page-bg: #f4f7fb;
-  --panel-bg: #ffffff;
-  --ink: #152238;
-  --accent: #0f6cbf;
-  --accent-2: #ffb703;
-  --border: #d7e0ea;
-  --muted: #64748b;
+  --bg: #f4f8ff;
+  --surface: #ffffff;
+  --surface-muted: #f7fafe;
+  --text: #12263f;
+  --muted: #62718f;
+  --border: #dce4ef;
+  --accent: #2854d6;
+  --accent-alt: #1f63c4;
+  --accent-soft: #e6efff;
+  --danger: #d64646;
+  --shadow: rgba(18, 38, 63, 0.12);
 }
 
 * {
@@ -14,221 +18,226 @@
   padding: 0;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  color: var(--ink);
-  background: linear-gradient(180deg, #edf2fb 0%, var(--page-bg) 100%);
+  background: linear-gradient(180deg, #f7faff 0%, var(--bg) 100%);
+  color: var(--text);
   min-height: 100vh;
   padding: 2rem 1rem;
 }
 
 .page-shell {
-  max-width: 1200px;
+  max-width: 1180px;
   margin: 0 auto;
 }
 
 .church-header {
-  background: var(--panel-bg);
-  color: var(--ink);
-  padding: 1.5rem 1.6rem 1.2rem;
-  border-radius: 24px;
-  box-shadow: 0 18px 45px rgba(15, 55, 100, 0.08);
-  border: 1px solid rgba(15, 108, 191, 0.12);
-  margin-bottom: 1.5rem;
+  position: relative;
+  padding: 2rem;
+  border-radius: 28px;
+  background: var(--surface);
+  border: 1px solid rgba(40, 84, 214, 0.12);
+  box-shadow: 0 22px 60px rgba(18, 38, 63, 0.08);
+  overflow: hidden;
 }
 
-.header-inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  flex-wrap: wrap;
+.church-header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at top right, rgba(40, 84, 214, 0.14), transparent 34%),
+    linear-gradient(180deg, rgba(40, 84, 214, 0.04), transparent 48%);
+  pointer-events: none;
 }
 
-.brand-link {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  text-decoration: none;
-  color: inherit;
-}
-
-.brand-logo {
-  width: 66px;
-  height: 66px;
-  border-radius: 18px;
-  background: rgba(15, 108, 191, 0.08);
-  padding: 0.6rem;
-  object-fit: contain;
-}
-
-.brand-copy {
+.header-grid {
   display: grid;
-  gap: 0.2rem;
-}
-
-.brand-label {
-  font-size: 0.8rem;
-  text-transform: uppercase;
-  letter-spacing: 0.16em;
-  color: var(--muted);
-}
-
-.brand-title {
-  font-size: 1.4rem;
-  line-height: 1.2;
-}
-
-.site-nav {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.8rem;
-}
-
-.nav-link {
-  color: var(--muted);
-  text-decoration: none;
-  padding: 0.55rem 0.85rem;
-  border-radius: 999px;
-  border: 1px solid transparent;
-  transition: all 0.2s ease;
-  font-size: 0.95rem;
-}
-
-.nav-link:hover,
-.nav-link:focus {
-  color: var(--accent);
-  border-color: rgba(15, 108, 191, 0.18);
-  background: rgba(15, 108, 191, 0.06);
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 1.5rem;
 }
 
 .lang-switcher {
   display: flex;
-  gap: 0.55rem;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  z-index: 1;
+}
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  z-index: 1;
 }
 
 .lang-btn {
-  border: 1px solid rgba(15, 108, 191, 0.18);
-  background: #fff;
-  color: var(--ink);
-  padding: 0.55rem 0.95rem;
+  border: 1px solid rgba(40, 84, 214, 0.16);
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--text);
+  padding: 0.65rem 1rem;
   border-radius: 999px;
   font-size: 0.9rem;
-  font-weight: 600;
+  font-weight: 700;
   cursor: pointer;
-  transition: transform 0.2s ease, background 0.2s ease;
+  transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
-.lang-btn:hover,
-.lang-btn:focus {
+.lang-btn:hover {
   transform: translateY(-1px);
-  background: rgba(15, 108, 191, 0.08);
+  background: rgba(40, 84, 214, 0.08);
 }
 
 .lang-btn.active {
   background: var(--accent);
   color: #fff;
-  border-color: var(--accent);
+  border-color: transparent;
 }
 
-.hero-copy {
-  margin-top: 1.35rem;
-  padding-top: 1rem;
-  border-top: 1px solid rgba(15, 108, 191, 0.08);
+.church-logo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  max-width: 700px;
+  z-index: 1;
+}
+
+.church-logo-image {
+  width: 80px;
+  height: 80px;
+  border-radius: 22px;
+  background: var(--accent-soft);
+  padding: 1rem;
+  box-shadow: 0 18px 40px rgba(40, 84, 214, 0.12);
+  object-fit: contain;
+}
+
+.church-logo-copy {
+  display: grid;
+  gap: 0.15rem;
+}
+
+.church-logo-copy span {
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 0.82rem;
+  color: var(--accent);
+}
+
+.church-logo-copy strong {
+  font-size: clamp(1.2rem, 1.4vw, 1.55rem);
+  letter-spacing: 0.02em;
 }
 
 .church-tag {
+  color: var(--muted);
   text-transform: uppercase;
-  letter-spacing: 0.24em;
-  font-size: 0.82rem;
-  color: var(--accent);
-  margin-bottom: 0.6rem;
+  letter-spacing: 0.16em;
+  margin-top: 0.75rem;
+  font-size: 0.85rem;
+  z-index: 1;
 }
 
 .church-header h1 {
-  font-size: clamp(2rem, 2.5vw, 2.9rem);
-  margin-bottom: 0.8rem;
-  line-height: 1.05;
+  margin-top: 0.8rem;
+  font-size: clamp(2rem, 3vw, 3rem);
+  line-height: 1.03;
+  z-index: 1;
 }
 
-.church-subtitle {
-  font-size: 1rem;
+.church-subtitle,
+.church-verse {
+  margin-top: 0.8rem;
   color: var(--muted);
-  max-width: 720px;
-  line-height: 1.7;
+  line-height: 1.8;
+  z-index: 1;
+}
+
+.header-grid {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.header-intro {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.header-copy {
+  max-width: 100%;
+}
+
+.church-header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top right, rgba(40, 84, 214, 0.14), transparent 34%);
+  pointer-events: none;
+}
+  letter-spacing: 0.16em;
+  margin-top: 0.75rem;
+  font-size: 0.85rem;
+  z-index: 1;
+}
+
+.church-header h1 {
+  margin-top: 0.8rem;
+  font-size: clamp(2rem, 3vw, 3rem);
+  line-height: 1.03;
+  z-index: 1;
+}
+
+.church-subtitle,
+.church-verse {
+  margin-top: 0.8rem;
+  color: var(--muted);
+  line-height: 1.8;
+  z-index: 1;
 }
 
 .form-wrapper {
-  background: transparent;
-  border-radius: 0 0 24px 24px;
-  overflow: visible;
-  position: relative;
-  padding-top: 1rem;
-}
-
-.palm-banner {
-  background: linear-gradient(180deg, rgba(15, 108, 191, 0.07) 0%, rgba(15, 108, 191, 0.02) 100%);
-  padding: 1rem 1rem 0.6rem;
-  border-bottom: 1px solid rgba(15, 108, 191, 0.12);
-  position: relative;
-  overflow: hidden;
-}
-
-.palm-banner::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at top left, rgba(15, 108, 191, 0.08), transparent 22%);
-  pointer-events: none;
-}
-
-.palm-banner svg {
-  display: block;
-  width: 100%;
-  height: auto;
-  mix-blend-mode: multiply;
-  opacity: 0.85;
+  margin-top: 1.75rem;
 }
 
 .form-card {
-  margin: -1.5rem 1.5rem 1.5rem;
+  background: var(--surface);
+  border-radius: 28px;
+  overflow: hidden;
+  border: 1px solid rgba(40, 84, 214, 0.08);
+  box-shadow: 0 22px 60px rgba(18, 38, 63, 0.08);
   padding: 2rem;
-  position: relative;
-  background: var(--panel-bg);
-  border-radius: 30px;
-  box-shadow: 0 26px 60px rgba(15, 55, 100, 0.12);
-  border: 1px solid rgba(15, 108, 191, 0.12);
 }
 
-.form-card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: 30px;
-  pointer-events: none;
-}
-
-.stamp {
+.form-wrapper::before,
+.form-wrapper::after,
+.palm-banner,
+.stamp,
+.church-badge {
   display: none;
 }
 
 .counting-form {
   display: grid;
-  gap: 1rem;
+  gap: 1.4rem;
 }
 
 .form-row {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1rem;
+  gap: 1.2rem;
 }
 
 label {
   display: grid;
-  gap: 0.4rem;
+  gap: 0.45rem;
   font-weight: 600;
-  color: var(--ink);
-  font-size: 1rem;
+  color: var(--text);
+  font-size: 0.98rem;
 }
 
 input,
@@ -236,57 +245,48 @@ select,
 textarea {
   width: 100%;
   border: 1px solid var(--border);
-  border-radius: 10px;
-  padding: 0.8rem 0.9rem;
-  font: inherit;
-  color: var(--ink);
-  background: rgba(255, 255, 255, 0.8);
-  font-family: "Segoe Print", "Bradley Hand", "Comic Sans MS", cursive;
+  border-radius: 16px;
+  padding: 1rem 1.1rem;
+  font: 500 0.95rem Inter, system-ui, sans-serif;
+  color: var(--text);
+  background: var(--surface-muted);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #8b97ae;
 }
 
 input:focus,
 select:focus,
 textarea:focus {
   outline: none;
-  border-color: var(--accent-2);
-  box-shadow: 0 0 0 3px rgba(201, 141, 59, 0.2);
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px rgba(40, 84, 214, 0.12);
 }
 
-.stats-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 1rem;
-}
-
-.form-section {
-  border: 1px solid rgba(15, 108, 191, 0.14);
-  border-radius: 24px;
-  padding: 1.4rem;
-  background: #fff;
-  box-shadow: 0 14px 30px rgba(15, 55, 100, 0.06);
-}
-
-.form-section h2 {
-  font-size: 1.1rem;
-  margin-bottom: 1rem;
-  color: var(--accent);
-  border-bottom: 1px solid rgba(15, 108, 191, 0.12);
-  padding-bottom: 0.65rem;
+textarea {
+  resize: vertical;
+  min-height: 140px;
 }
 
 .checkbox-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0.85rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.9rem;
 }
 
 .checkbox-grid label {
   display: flex;
   align-items: center;
-  gap: 0.65rem;
-  font-weight: 600;
-  font-size: 0.95rem;
-  color: var(--ink);
+  gap: 0.6rem;
+  font-weight: 500;
+  color: var(--text);
+  background: var(--surface-muted);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 0.9rem;
 }
 
 .checkbox-grid input {
@@ -296,134 +296,117 @@ textarea:focus {
 
 .full-width {
   display: grid;
-  gap: 0.55rem;
+  gap: 0.4rem;
 }
 
-textarea {
-  resize: vertical;
-  min-height: 130px;
+.form-section {
+  border: 1px solid rgba(40, 84, 214, 0.12);
+  border-radius: 24px;
+  padding: 1.5rem;
+  background: rgba(231, 240, 255, 0.85);
+}
+
+.form-section h2 {
+  font-size: 1.05rem;
+  margin-bottom: 0.9rem;
+  color: #173264;
+  border-bottom: 1px solid rgba(40, 84, 214, 0.12);
+  padding-bottom: 0.55rem;
 }
 
 .actions {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
-  margin-top: 1rem;
-}
-
-.form-message {
-  margin-top: 1rem;
-  padding: 1rem 1.1rem;
-  border-radius: 16px;
-  font-weight: 600;
-  display: none;
-  align-items: center;
-  gap: 0.75rem;
-}
-
-.form-message.success,
-.form-message.error {
-  display: flex;
-}
-
-.form-message.success {
-  background: rgba(79, 107, 61, 0.15);
-  color: #2f4d20;
-  border: 1px solid rgba(79, 107, 61, 0.3);
-}
-
-.form-message.error {
-  background: rgba(123, 45, 30, 0.12);
-  color: #7b2d1e;
-  border: 1px solid rgba(123, 45, 30, 0.25);
-}
-
-.form-message .message-text {
-  display: block;
-  line-height: 1.35;
-}
-
-.summary-panel {
-  padding: 1rem 0.4rem 0.6rem;
-  border-top: 1px dashed rgba(123, 45, 30, 0.3);
-  margin-top: 1rem;
-}
-
-.summary-panel h2 {
-  font-size: 1rem;
-  margin-bottom: 0.75rem;
-  letter-spacing: 0.05em;
-  color: var(--accent);
-}
-
-.summary-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0.9rem;
-}
-
-.summary-card {
-  background: rgba(255, 255, 255, 0.92);
-  border: 1px solid rgba(123, 45, 30, 0.12);
-  border-radius: 16px;
-  padding: 1rem;
-  display: grid;
-  gap: 0.35rem;
-}
-
-.summary-card span {
-  font-size: 0.9rem;
-  color: #6b4a38;
-}
-
-.summary-card strong {
-  font-size: 1.4rem;
-  color: var(--ink);
+  margin-top: 0.3rem;
 }
 
 button {
   border: none;
   border-radius: 999px;
-  background: linear-gradient(135deg, var(--accent) 0%, #244f8f 100%);
+  background: linear-gradient(135deg, var(--accent) 0%, #1f4acc 100%);
   color: #fff;
   font-weight: 700;
-  padding: 0.88rem 1.3rem;
+  padding: 1rem 1.5rem;
   cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
-  box-shadow: 0 14px 28px rgba(15, 55, 100, 0.16);
+  box-shadow: 0 16px 40px rgba(40, 84, 214, 0.18);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 button:hover {
   transform: translateY(-1px);
-  box-shadow: 0 16px 30px rgba(15, 55, 100, 0.16);
+  box-shadow: 0 18px 44px rgba(40, 84, 214, 0.22);
 }
 
 button.secondary {
-  background: transparent;
-  color: var(--ink);
-  border: 1px solid rgba(15, 108, 191, 0.18);
-  box-shadow: none;
+  background: #fff;
+  color: var(--text);
+  border: 1px solid var(--border);
+  box-shadow: 0 10px 24px rgba(18, 38, 63, 0.08);
 }
 
 .print-btn {
   background: var(--accent);
   color: #fff;
-  border-color: var(--accent);
+}
+
+.form-message {
+  margin-top: 0.9rem;
+  padding: 0.95rem 1rem;
+  border-radius: 16px;
+  font-weight: 600;
+  display: none;
+}
+
+.form-message.success {
+  display: block;
+  background: rgba(36, 84, 214, 0.12);
+  color: #0f2c58;
+  border: 1px solid rgba(36, 84, 214, 0.18);
+}
+
+.form-message.error {
+  display: block;
+  background: rgba(214, 70, 70, 0.12);
+  color: var(--danger);
+  border: 1px solid rgba(214, 70, 70, 0.22);
+}
+
+@media (max-width: 900px) {
+  .church-header {
+    padding: 1.6rem;
+  }
+
+  .form-card {
+    padding: 1.5rem;
+  }
 }
 
 @media (max-width: 700px) {
   body {
-    padding: 1rem 0.7rem;
+    padding: 1rem 0.9rem;
+  }
+
+  .page-shell {
+    width: calc(100% - 1.8rem);
+  }
+
+  .church-header {
+    border-radius: 22px;
+  }
+
+  .lang-switcher {
+    justify-content: center;
+  }
+
+  .church-logo {
+    flex-direction: column;
+    align-items: flex-start;
   }
 
   .form-row,
-  .stats-grid,
   .checkbox-grid {
     grid-template-columns: 1fr;
-  }
-
-  .church-header h1 {
-    font-size: 1.8rem;
   }
 }
 
@@ -437,8 +420,7 @@ button.secondary {
   .page-shell,
   .form-wrapper,
   .church-header,
-  .form-card,
-  .summary-card {
+  .form-card {
     box-shadow: none;
     background: transparent;
   }
@@ -453,11 +435,10 @@ button.secondary {
     padding: 1.5rem 1rem 1rem;
   }
 
-  .palm-banner,
-  .stamp,
   .actions,
   .print-btn,
-  .secondary {
+  .secondary,
+  .lang-switcher {
     display: none !important;
   }
 
@@ -476,51 +457,5 @@ button.secondary {
   .form-card {
     padding: 0;
     border-top: none;
-  }
-
-  .summary-panel {
-    border-top: 1px solid #999;
-  }
-
-  .summary-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .summary-card {
-    border: 1px solid #999;
-    background: #f7f7f7;
-  }
-}
-
-@media (max-width: 900px) {
-  .header-inner,
-  .site-nav {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .site-nav {
-    gap: 0.75rem;
-  }
-}
-
-@media (max-width: 700px) {
-  body {
-    padding: 1rem 0.7rem;
-  }
-
-  .form-row,
-  .stats-grid,
-  .checkbox-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .church-header h1 {
-    font-size: 1.75rem;
-  }
-
-  .form-card {
-    margin: -1rem 0 1rem;
-    padding: 1.5rem;
   }
 }

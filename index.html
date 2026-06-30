@@ -10,32 +10,24 @@
 <body>
   <div class="page-shell">
     <header class="church-header">
-      <div class="header-inner">
-        <a href="#" class="brand-link">
-          <img src="logo.svg" alt="EOTC logo" class="brand-logo">
-          <div class="brand-copy">
-            <span class="brand-label" data-translate data-en="Ethiopian Orthodox Tewahedo Church" data-am="የኢትዮጵያ ኦርቶዶክስ ተዋሕዶ ቤተ ክርስቲያን">Ethiopian Orthodox Tewahedo Church</span>
-            <strong class="brand-title" data-translate data-en="Parishioner Census" data-am="የአባላት የማሰባሰቢያ ቅጽ">Parishioner Census</strong>
-          </div>
-        </a>
-
-        <nav class="site-nav" aria-label="Main navigation">
-          <a href="#personal" class="nav-link" data-translate data-en="Personal" data-am="ግል">Personal</a>
-          <a href="#family" class="nav-link" data-translate data-en="Family" data-am="ቤተሰብ">Family</a>
-          <a href="#spiritual" class="nav-link" data-translate data-en="Spiritual" data-am="መንፈሳዊ">Spiritual</a>
-          <a href="#office" class="nav-link" data-translate data-en="Office" data-am="ቢሮ">Office</a>
-        </nav>
-
-        <div class="lang-switcher">
-          <button type="button" class="lang-btn active" data-lang="en" data-translate data-en="English" data-am="እንግሊዝኛ">English</button>
-          <button type="button" class="lang-btn" data-lang="am" data-translate data-en="Amharic" data-am="አማርኛ">Amharic</button>
-        </div>
+      <div class="lang-switcher">
+        <button type="button" class="lang-btn active" data-lang="en" data-translate data-en="English" data-am="እንግሊዝኛ">English</button>
+        <button type="button" class="lang-btn" data-lang="am" data-translate data-en="Amharic" data-am="አማርኛ">Amharic</button>
       </div>
-
-      <div class="hero-copy">
-        <p class="church-tag" data-translate data-en="Comprehensive Parishioner Spiritual & Statistical Census" data-am="የሙሉ የአባላት መንፈሳዊና ስታቲስቲካዊ ቅጽ">Comprehensive Parishioner Spiritual & Statistical Census</p>
-        <h1 data-translate data-en="Build a stronger parish with better member insights" data-am="በሚገባ የአባላት መረጃ ያሰሩ ተስማሚ አገልግሎት">Build a stronger parish with better member insights</h1>
-        <p class="church-subtitle" data-translate data-en="Complete this form to register members, track sacraments, and support parish planning." data-am="ይህን ቅጽ ሙሉ በሙሉ ይሙሉ እንዲሁም የቤተ ክርስቲያን እቅድ ይደግፉ።">Complete this form to register members, track sacraments, and support parish planning.</p>
+      <div class="header-grid">
+        <div class="church-logo">
+          <img src="logo.svg" alt="Church logo" class="church-logo-image">
+          <div class="church-logo-copy">
+            <span data-translate data-en="Ethiopian Orthodox Tewahedo Church" data-am="የኢትዮጵያ ኦርቶዶክስ ተዋሕዶ ቤተ ክርስቲያን">Ethiopian Orthodox Tewahedo Church</span>
+            <strong data-translate data-en="Comprehensive Census Form" data-am="የሙሉ ቅጽ ማሰባሰብ">Comprehensive Census Form</strong>
+          </div>
+        </div>
+        <div class="header-intro">
+          <p class="church-tag" data-translate data-en="Ethiopian Orthodox Tewahedo Church" data-am="የኢትዮጵያ ኦርቶዶክስ ተዋሕዶ ቤተ ክርስቲያን">Ethiopian Orthodox Tewahedo Church</p>
+          <h1 data-translate data-en="Comprehensive Parishioner Census Form" data-am="የሙሉ የአባላት የማሰባሰቢያ ቅጽ">Comprehensive Parishioner Census Form</h1>
+          <p class="church-subtitle" data-translate data-en="Comprehensive Parishioner Spiritual and Statistical Census Form" data-am="የሙሉ የአባላት መንፈሳዊና ስታቲስቲካዊ ቅጽ">Comprehensive Parishioner Spiritual and Statistical Census Form</p>
+          <p class="church-verse" data-translate data-en="With order, reverence, and thanksgiving." data-am="በቅድሚያ፣ በክብር እና በምስጋና">“With order, reverence, and thanksgiving.”</p>
+        </div>
       </div>
     </header>
 
@@ -406,9 +398,7 @@
             <button type="reset" class="secondary" data-translate data-en="Clear Form" data-am="ቅጹን አጽዳ">Clear Form</button>
           </div>
 
-          <div class="form-message" id="form-message" aria-live="polite" role="status">
-            <span class="message-text"></span>
-          </div>
+          <p class="form-message" id="form-message" aria-live="polite"></p>
         </form>
       </section>
     </main>
