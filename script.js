@@ -1,5 +1,6 @@
 const form = document.querySelector('.counting-form');
 const messageBox = document.querySelector('#form-message');
+const messageText = messageBox ? messageBox.querySelector('.message-text') : null;
 
 function setLanguage(lang) {
   const locale = lang === 'am' ? 'am' : 'en';
@@ -74,11 +75,11 @@ if (form) {
     });
 
     if (response.ok) {
-      messageBox.textContent = 'Thank you! Your census form has been submitted successfully.';
+      if (messageText) messageText.textContent = 'Thank you! Your census form has been submitted successfully.';
       messageBox.className = 'form-message success';
       form.reset();
     } else {
-      messageBox.textContent = 'Sorry, something went wrong. Please try again.';
+      if (messageText) messageText.textContent = 'Sorry, something went wrong. Please try again.';
       messageBox.className = 'form-message error';
     }
   });
