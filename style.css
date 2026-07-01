@@ -329,6 +329,24 @@ textarea {
   min-height: 140px;
 }
 
+/* Validation Error State */
+input.input-error,
+select.input-error,
+textarea.input-error {
+  border-color: #d9534f;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 230, 230, 0.8) 100%);
+  box-shadow: 0 10px 24px rgba(217, 83, 79, 0.12);
+}
+
+input.input-error:focus,
+select.input-error:focus,
+textarea.input-error:focus {
+  border-color: #d9534f;
+  box-shadow: 
+    0 12px 32px rgba(217, 83, 79, 0.16),
+    inset 0 0 0 1px rgba(217, 83, 79, 0.1);
+}
+
 .checkbox-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -480,9 +498,19 @@ button.secondary:focus-visible {
   border-radius: 18px;
   font-weight: 650;
   display: none;
-  line-height: 1.8;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
+  line-height: 1.6;
+  animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .form-message.success {
@@ -491,17 +519,16 @@ button.secondary:focus-visible {
   color: #2d2416;
   border: 1px solid rgba(111, 100, 79, 0.18);
   box-shadow: 0 8px 20px rgba(111, 100, 79, 0.08);
-  text-align: center;
 }
 
 .form-message.error {
   display: block;
-  background: linear-gradient(135deg, rgba(192, 57, 43, 0.12), rgba(192, 57, 43, 0.08));
+  background: linear-gradient(135deg, rgba(217, 83, 79, 0.12), rgba(217, 83, 79, 0.08));
   color: #8b2b1f;
-  border: 2px solid rgba(192, 57, 43, 0.24);
-  box-shadow: 0 8px 20px rgba(192, 57, 43, 0.1);
-  text-align: left;
-  font-weight: 500;
+  border: 2px solid rgba(217, 83, 79, 0.24);
+  box-shadow: 0 8px 20px rgba(217, 83, 79, 0.12);
+  white-space: pre-wrap;
+  word-break: break-word;
 }
 
 /* ========== RESPONSIVE DESIGN ========== */

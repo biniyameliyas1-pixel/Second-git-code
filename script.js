@@ -93,150 +93,192 @@ if (form) {
     }
   });
 
-  // Validation Functions
-  function validateFullName(value) {
-    return value.trim().length >= 3;
-  }
+  // ========== VALIDATION FUNCTIONS ==========
 
-  function validateEmail(value) {
-    if (!value) return true; // Optional field
+  function validateEmail(email) {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(value);
+    return emailRegex.test(email);
   }
 
-  function validatePhone(value) {
-    if (!value) return true; // Optional field
-    const phoneRegex = /^09\d{8}$/;
-    return phoneRegex.test(value);
+  function validatePhone(phone) {
+    const phoneRegex = /^[0-9\s\-\+\(\)]{9,}$/;
+    return phoneRegex.test(phone.replace(/\s/g, ''));
   }
 
-  function validateAge(value) {
-    if (!value) return true; // Optional field
-    const age = parseInt(value, 10);
-    return age >= 0 && age <= 150;
+  function validateText(text, minLength = 2) {
+    return text.trim().length >= minLength && text.trim().length <= 100;
   }
 
-  function validateBloodType(value) {
-    if (!value) return true; // Optional field
-    const validTypes = ['A', 'B', 'AB', 'O'];
-    return validTypes.includes(value.toUpperCase());
+  function validateAge(age) {
+    const ageNum = parseInt(age);
+    return !isNaN(ageNum) && ageNum >= 0 && ageNum <= 150;
   }
 
-  function validateNumberField(value) {
-    if (!value && value !== '0') return true; // Optional field
-    const num = parseInt(value, 10);
-    return !isNaN(num) && num >= 0;
+  function validateNumber(num, min = 0, max = 1000) {
+    const numVal = parseInt(num);
+    return !isNaN(numVal) && numVal >= min && numVal <= max;
   }
 
-  function validateDateOfBirth(value) {
-    if (!value) return true; // Optional field
-    const birthDate = new Date(value);
-    const today = new Date();
-    const age = today.getFullYear() - birthDate.getFullYear();
-    const monthDiff = today.getMonth() - birthDate.getMonth();
-    
-    if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
-      return age >= 13; // Must be at least 13 years old
-    }
-    return age >= 13;
-  }
-
-  function validateSelectField(value) {
-    return value !== '' && value !== null;
+  function validateBloodType(type) {
+    const bloodTypes = ['A', 'B', 'AB', 'O', 'A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-'];
+    return type === '' || bloodTypes.includes(type.toUpperCase());
   }
 
   function validateForm() {
     const errors = [];
+    const currentLocale = document.documentElement.lang || 'en';
+    
+    // Get all inputs and select fields
+    const inputs = form.querySelectorAll('input[type="text"], input[type="email"], input[type="tel"], input[type="number"], input[type="date"], select, textarea');
 
-    // Full Name - required
-    const fullName = form.querySelector('input[name="full-name"]').value;
-    if (!validateFullName(fullName)) {
-      errors.push('Full Name must be at least 3 characters long');
-    }
-
-    // Email - optional but must be valid if filled
-    const email = form.querySelector('input[name="email"]').value;
-    if (!validateEmail(email)) {
-      errors.push('Please enter a valid email address');
-    }
-
-    // Phone - optional but must be valid format if filled
-    const phone = form.querySelector('input[name="phone"]').value;
-    if (!validatePhone(phone)) {
-      errors.push('Phone must be in format 09xxxxxxxx (Ethiopian format)');
-    }
-
-    // Age - optional but must be valid if filled
-    const age = form.querySelector('input[name="age"]').value;
-    if (!validateAge(age)) {
-      errors.push('Age must be between 0 and 150');
-    }
-
-    // Blood Type - optional but must be valid if filled
-    const bloodType = form.querySelector('input[name="blood-type"]').value;
-    if (!validateBloodType(bloodType)) {
-      errors.push('Blood Type must be A, B, AB, or O');
-    }
-
-    // Date of Birth - optional but must be valid if filled
-    const birthDate = form.querySelector('input[name="birth-date"]').value;
-    if (!validateDateOfBirth(birthDate)) {
-      errors.push('Person must be at least 13 years old');
-    }
-
-    // Validate all number fields
-    const numberFields = [
-      { name: 'family-members', label: 'Family Members' },
-      { name: 'sons-count', label: 'Sons Count' },
-      { name: 'daughters-count', label: 'Daughters Count' },
-      { name: 'children-under-7', label: 'Children Under 7' },
-      { name: 'non-orthodox-members', label: 'Non-Orthodox Members' }
-    ];
-
-    numberFields.forEach(field => {
-      const value = form.querySelector(`input[name="${field.name}"]`).value;
-      if (!validateNumberField(value)) {
-        errors.push(`${field.label} must be a non-negative number`);
+    inputs.forEach((input) => {
+      const fieldName = input.name;
+      const fieldValue = input.value.trim();
+      const isRequired = input.hasAttribute('required');
+      
+      // Skip optional empty fields
+      if (!isRequired && fieldValue === '') {
+        return;
       }
-    });
 
-    // Validate required select fields
-    const requiredSelects = [
-      { name: 'gender', label: 'Gender' },
-      { name: 'marital-status', label: 'Marital Status' },
-      { name: 'has-confession-father', label: 'Confession Father' }
-    ];
+      // Check required fields
+      if (isRequired && fieldValue === '') {
+        const fieldLabel = form.querySelector(`label:has([name="${fieldName}"])`);
+        const label = fieldLabel ? fieldLabel.textContent.split('\n')[0].trim() : fieldName;
+        errors.push(`${label} is required`);
+        input.classList.add('input-error');
+        return;
+      }
 
-    requiredSelects.forEach(field => {
-      const value = form.querySelector(`select[name="${field.name}"]`).value;
-      if (!validateSelectField(value)) {
-        errors.push(`${field.label} is required`);
+      input.classList.remove('input-error');
+
+      // Validate specific field types
+      switch (fieldName) {
+        case 'email':
+          if (fieldValue && !validateEmail(fieldValue)) {
+            errors.push('Please enter a valid email address');
+            input.classList.add('input-error');
+          }
+          break;
+
+        case 'phone':
+          if (fieldValue && !validatePhone(fieldValue)) {
+            errors.push('Please enter a valid phone number (at least 9 digits)');
+            input.classList.add('input-error');
+          }
+          break;
+
+        case 'full-name':
+          if (fieldValue && !validateText(fieldValue, 2)) {
+            errors.push('Full name must be between 2-100 characters');
+            input.classList.add('input-error');
+          }
+          break;
+
+        case 'christian-name':
+        case 'parent-name':
+        case 'current-church':
+        case 'confession-father-name':
+        case 'occupation':
+        case 'region':
+        case 'zone':
+        case 'woreda':
+        case 'kebele':
+        case 'village':
+        case 'house-number':
+        case 'support-details':
+          if (fieldValue && !validateText(fieldValue, 1)) {
+            errors.push(`${fieldName.replace(/-/g, ' ')} must be 1-100 characters`);
+            input.classList.add('input-error');
+          }
+          break;
+
+        case 'blood-type':
+          if (fieldValue && !validateBloodType(fieldValue)) {
+            errors.push('Blood type must be A, B, AB, or O (with + or - optional)');
+            input.classList.add('input-error');
+          }
+          break;
+
+        case 'age':
+          if (fieldValue && !validateAge(fieldValue)) {
+            errors.push('Age must be between 0-150 years');
+            input.classList.add('input-error');
+          }
+          break;
+
+        case 'family-members':
+        case 'sons-count':
+        case 'daughters-count':
+        case 'children-under-7':
+        case 'non-orthodox-members':
+          if (fieldValue !== '' && !validateNumber(fieldValue, 0, 500)) {
+            errors.push(`${fieldName.replace(/-/g, ' ')} must be a valid number (0-500)`);
+            input.classList.add('input-error');
+          }
+          break;
       }
     });
 
     return errors;
   }
 
-  function displayValidationErrors(errors) {
-    if (errors.length === 0) return true;
+  // Add real-time validation feedback
+  form.querySelectorAll('input[type="email"]').forEach((input) => {
+    input.addEventListener('blur', () => {
+      if (input.value && !validateEmail(input.value)) {
+        input.classList.add('input-error');
+      } else {
+        input.classList.remove('input-error');
+      }
+    });
+  });
 
-    const errorMessage = errors.join('\n');
-    messageBox.textContent = `Validation errors:\n${errorMessage}`;
-    messageBox.className = 'form-message error';
-    messageBox.style.whiteSpace = 'pre-wrap';
-    window.scrollTo(0, 0);
-    return false;
-  }
+  form.querySelectorAll('input[type="tel"]').forEach((input) => {
+    input.addEventListener('blur', () => {
+      if (input.value && !validatePhone(input.value)) {
+        input.classList.add('input-error');
+      } else {
+        input.classList.remove('input-error');
+      }
+    });
+  });
+
+  form.querySelectorAll('input[type="number"]').forEach((input) => {
+    input.addEventListener('blur', () => {
+      if (input.value === '') return;
+      const min = parseInt(input.getAttribute('min')) || 0;
+      const max = parseInt(input.getAttribute('max')) || 1000;
+      const val = parseInt(input.value);
+      if (isNaN(val) || val < min || val > max) {
+        input.classList.add('input-error');
+      } else {
+        input.classList.remove('input-error');
+      }
+    });
+  });
+
 
   form.addEventListener('submit', async (event) => {
     event.preventDefault();
 
-    // Validate form before submission
+    // Clear previous error state
+    form.querySelectorAll('.input-error').forEach((input) => {
+      input.classList.remove('input-error');
+    });
+
+    // Validate all fields
     const validationErrors = validateForm();
-    if (!displayValidationErrors(validationErrors)) {
+
+    if (validationErrors.length > 0) {
+      const errorMessage = validationErrors.join('\n• ');
+      messageBox.textContent = '❌ Please fix the following errors:\n• ' + errorMessage;
+      messageBox.className = 'form-message error';
+      messageBox.style.whiteSpace = 'pre-wrap';
       return;
     }
 
+    // Validation passed, submit the form
     const formData = new FormData(form);
     const response = await fetch(form.action, {
       method: 'POST',
@@ -249,7 +291,6 @@ if (form) {
     if (response.ok) {
       messageBox.textContent = 'Thank you! Your census form has been submitted successfully.';
       messageBox.className = 'form-message success';
-      messageBox.style.whiteSpace = 'normal';
       showSuccessDialog();
     } else {
       messageBox.textContent = 'Sorry, something went wrong. Please try again.';
@@ -260,7 +301,6 @@ if (form) {
   form.addEventListener('reset', () => {
     messageBox.textContent = '';
     messageBox.className = 'form-message';
-    messageBox.style.whiteSpace = 'normal';
   });
 }
 
