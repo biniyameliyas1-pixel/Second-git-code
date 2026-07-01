@@ -5,9 +5,9 @@
   --text: #332b1f;
   --muted: #6f644f;
   --border: #dbc8a8;
-  --accent: #1c5a24;
-  --accent-alt: #bb8b2f;
-  --accent-soft: rgba(187, 139, 47, 0.16);
+  --accent: #6f644f;
+  --accent-alt: #8b7355;
+  --accent-soft: rgba(111, 100, 79, 0.12);
   --danger: #9f2724;
   --shadow: rgba(77, 56, 25, 0.12);
 }
@@ -38,8 +38,7 @@ body::before {
   position: fixed;
   inset: 0;
   background-image: 
-    repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(187, 139, 47, 0.02) 2px, rgba(187, 139, 47, 0.02) 4px),
-    repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(28, 90, 36, 0.02) 2px, rgba(28, 90, 36, 0.02) 4px);
+    repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(111, 100, 79, 0.01) 2px, rgba(111, 100, 79, 0.01) 4px);
   pointer-events: none;
   z-index: -1;
 }
@@ -58,8 +57,7 @@ body::before {
   padding: 2.4rem;
   border-radius: 32px;
   background: linear-gradient(135deg, #fff9f0 0%, #f6e7cf 100%);
-  border: 8px solid transparent;
-  border-image: linear-gradient(90deg, #137a1f 0%, #137a1f 33%, #e0a12b 33%, #e0a12b 66%, #b72b2b 66%, #b72b2b 100%) 1;
+  border: 2px solid rgba(111, 100, 79, 0.18);
   box-shadow: 
     0 32px 80px rgba(139, 96, 42, 0.18),
     inset 0 1px 0 rgba(255, 255, 255, 0.6);
@@ -71,9 +69,9 @@ body::before {
   position: absolute;
   inset: 0;
   background: 
-    repeating-linear-gradient(90deg, transparent, transparent 8px, rgba(224, 161, 43, 0.03) 8px, rgba(224, 161, 43, 0.03) 16px),
-    radial-gradient(circle at top right, rgba(28, 90, 36, 0.12), transparent 36%),
-    radial-gradient(circle at bottom left, rgba(187, 139, 47, 0.14), transparent 32%);
+    repeating-linear-gradient(90deg, transparent, transparent 8px, rgba(111, 100, 79, 0.02) 8px, rgba(111, 100, 79, 0.02) 16px),
+    radial-gradient(circle at top right, rgba(111, 100, 79, 0.08), transparent 36%),
+    radial-gradient(circle at bottom left, rgba(139, 96, 42, 0.1), transparent 32%);
   pointer-events: none;
 }
 
@@ -83,7 +81,7 @@ body::before {
   top: -12px;
   right: 2rem;
   font-size: 4rem;
-  color: rgba(28, 90, 36, 0.08);
+  color: rgba(111, 100, 79, 0.06);
   z-index: 0;
   line-height: 1;
 }
@@ -105,7 +103,7 @@ body::before {
 }
 
 .lang-btn {
-  border: 1px solid rgba(28, 90, 36, 0.2);
+  border: 1px solid rgba(111, 100, 79, 0.22);
   background: rgba(255, 250, 240, 0.96);
   color: var(--text);
   padding: 0.65rem 1.2rem;
@@ -120,16 +118,16 @@ body::before {
 .lang-btn:hover,
 .lang-btn:focus-visible {
   transform: translateY(-2px);
-  background: rgba(28, 90, 36, 0.08);
-  border-color: rgba(28, 90, 36, 0.28);
+  background: rgba(111, 100, 79, 0.08);
+  border-color: rgba(111, 100, 79, 0.32);
   box-shadow: 0 8px 20px rgba(77, 56, 25, 0.12);
 }
 
 .lang-btn.active {
-  background: linear-gradient(135deg, #1c5a24 0%, #bb8b2f 100%);
+  background: linear-gradient(135deg, #6f644f 0%, #8b7355 100%);
   color: #fff;
   border-color: transparent;
-  box-shadow: 0 8px 24px rgba(28, 90, 36, 0.24);
+  box-shadow: 0 8px 24px rgba(111, 100, 79, 0.24);
 }
 
 .brand-logo {
@@ -143,9 +141,9 @@ body::before {
   width: 96px;
   height: 96px;
   border-radius: 28px;
-  background: linear-gradient(135deg, var(--accent-soft), rgba(224, 161, 43, 0.12));
+  background: linear-gradient(135deg, var(--accent-soft), rgba(139, 96, 42, 0.08));
   padding: 1.2rem;
-  border: 3px solid rgba(187, 139, 47, 0.45);
+  border: 2px solid rgba(111, 100, 79, 0.24);
   box-shadow: 
     0 24px 48px rgba(139, 96, 42, 0.16),
     inset 0 1px 0 rgba(255, 255, 255, 0.5);
@@ -169,24 +167,24 @@ body::before {
   min-width: 16px;
   height: 5px;
   border-radius: 999px;
-  background: #137a1f;
-  box-shadow: 0 2px 4px rgba(19, 122, 31, 0.2);
+  background: rgba(111, 100, 79, 0.6);
+  box-shadow: 0 2px 4px rgba(111, 100, 79, 0.15);
   transition: all 0.3s ease;
 }
 
 .brand-motif span:nth-child(2) {
-  background: #e0a12b;
+  background: rgba(111, 100, 79, 0.4);
 }
 
 .brand-motif span:nth-child(3) {
-  background: #b72b2b;
+  background: rgba(111, 100, 79, 0.5);
 }
 
 .brand-logo-copy span {
   text-transform: uppercase;
   letter-spacing: 0.18em;
   font-size: 0.78rem;
-  color: #1c5a24;
+  color: #6f644f;
   font-weight: 700;
 }
 
@@ -213,7 +211,7 @@ body::before {
   line-height: 1.1;
   z-index: 1;
   letter-spacing: -0.02em;
-  color: #1c3d2f;
+  color: #332b1f;
 }
 
 .brand-subtitle,
@@ -245,8 +243,7 @@ body::before {
   background: var(--surface);
   border-radius: 32px;
   overflow: hidden;
-  border: 6px solid transparent;
-  border-image: linear-gradient(90deg, #137a1f 0%, #137a1f 33%, #e0a12b 33%, #e0a12b 66%, #b72b2b 66%, #b72b2b 100%) 1;
+  border: 2px solid rgba(111, 100, 79, 0.16);
   box-shadow: 
     0 32px 80px rgba(139, 96, 42, 0.16),
     inset 0 1px 0 rgba(255, 255, 255, 0.8);
@@ -259,8 +256,7 @@ body::before {
   position: absolute;
   inset: 0;
   background-image: 
-    repeating-linear-gradient(90deg, transparent, transparent 12px, rgba(224, 161, 43, 0.02) 12px, rgba(224, 161, 43, 0.02) 24px),
-    repeating-linear-gradient(0deg, transparent, transparent 12px, rgba(28, 90, 36, 0.02) 12px, rgba(28, 90, 36, 0.02) 24px);
+    repeating-linear-gradient(90deg, transparent, transparent 12px, rgba(111, 100, 79, 0.01) 12px, rgba(111, 100, 79, 0.01) 24px);
   pointer-events: none;
 }
 
@@ -320,10 +316,10 @@ input:focus,
 select:focus,
 textarea:focus {
   outline: none;
-  border-color: #1c5a24;
+  border-color: #6f644f;
   box-shadow: 
-    0 12px 32px rgba(28, 90, 36, 0.18),
-    inset 0 0 0 1px rgba(28, 90, 36, 0.1);
+    0 12px 32px rgba(111, 100, 79, 0.12),
+    inset 0 0 0 1px rgba(111, 100, 79, 0.1);
   transform: translateY(-2px);
   background: linear-gradient(135deg, #fff9f0 0%, #fff4e5 100%);
 }
@@ -355,14 +351,14 @@ textarea {
 }
 
 .checkbox-grid label:hover {
-  border-color: #bb8b2f;
-  background: linear-gradient(135deg, rgba(224, 161, 43, 0.1), rgba(255, 250, 240, 0.95));
+  border-color: #8b7355;
+  background: linear-gradient(135deg, rgba(111, 100, 79, 0.1), rgba(255, 250, 240, 0.95));
   box-shadow: 0 8px 20px rgba(139, 96, 42, 0.12);
 }
 
 .checkbox-grid input {
   width: auto;
-  accent-color: #1c5a24;
+  accent-color: #6f644f;
   cursor: pointer;
 }
 
@@ -372,10 +368,10 @@ textarea {
 }
 
 .form-section {
-  border: 2px solid rgba(187, 139, 47, 0.24);
+  border: 1px solid rgba(111, 100, 79, 0.18);
   border-radius: 24px;
   padding: 1.8rem;
-  background: linear-gradient(135deg, rgba(249, 236, 205, 0.98) 0%, rgba(255, 248, 235, 0.95) 100%);
+  background: linear-gradient(135deg, rgba(249, 236, 205, 0.95) 0%, rgba(255, 248, 235, 0.92) 100%);
   position: relative;
   transition: all 0.3s ease;
 }
@@ -385,11 +381,11 @@ textarea {
   position: absolute;
   inset: 0;
   transform: translateY(-100%);
-  height: 6px;
-  background: linear-gradient(90deg, #137a1f 0%, #137a1f 33%, #e0a12b 33%, #e0a12b 66%, #b72b2b 66%, #b72b2b 100%);
+  height: 3px;
+  background: rgba(111, 100, 79, 0.24);
   border-top-left-radius: 24px;
   border-top-right-radius: 24px;
-  box-shadow: 0 2px 8px rgba(28, 90, 36, 0.15);
+  box-shadow: none;
 }
 
 .form-section::after {
@@ -397,7 +393,7 @@ textarea {
   position: absolute;
   inset: 0;
   background-image: 
-    repeating-linear-gradient(90deg, transparent, transparent 16px, rgba(224, 161, 43, 0.01) 16px, rgba(224, 161, 43, 0.01) 32px);
+    repeating-linear-gradient(90deg, transparent, transparent 16px, rgba(111, 100, 79, 0.005) 16px, rgba(111, 100, 79, 0.005) 32px);
   pointer-events: none;
   border-radius: 24px;
 }
@@ -405,8 +401,8 @@ textarea {
 .form-section h2 {
   font-size: 1.12rem;
   margin-bottom: 1.2rem;
-  color: #1c3d2f;
-  border-bottom: 2px solid rgba(187, 139, 47, 0.22);
+  color: #332b1f;
+  border-bottom: 1px solid rgba(111, 100, 79, 0.18);
   padding-bottom: 0.7rem;
   font-weight: 750;
   letter-spacing: 0.01em;
@@ -424,13 +420,13 @@ textarea {
 button {
   border: none;
   border-radius: 999px;
-  background: linear-gradient(135deg, #1c5a24 0%, #1c5a24 40%, #bb8b2f 70%, #bb8b2f 100%);
+  background: linear-gradient(135deg, #6f644f 0%, #8b7355 100%);
   color: #fff;
   font-weight: 750;
   padding: 1.1rem 2rem;
   cursor: pointer;
   box-shadow: 
-    0 20px 48px rgba(28, 90, 36, 0.24),
+    0 20px 48px rgba(111, 100, 79, 0.18),
     inset 0 1px 0 rgba(255, 255, 255, 0.2);
   transition: all 0.2s ease;
   font-size: 0.98rem;
@@ -443,14 +439,14 @@ button::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.2), transparent 50%);
+  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.15), transparent 50%);
   pointer-events: none;
 }
 
 button:hover {
   transform: translateY(-3px);
   box-shadow: 
-    0 28px 56px rgba(28, 90, 36, 0.3),
+    0 28px 56px rgba(111, 100, 79, 0.24),
     inset 0 1px 0 rgba(255, 255, 255, 0.3);
 }
 
@@ -460,21 +456,21 @@ button:active {
 
 button.secondary {
   background: linear-gradient(135deg, #fff9f0 0%, #f6e7cf 100%);
-  color: #1c5a24;
-  border: 2px solid rgba(187, 139, 47, 0.5);
+  color: #6f644f;
+  border: 2px solid rgba(111, 100, 79, 0.28);
   box-shadow: 0 12px 32px rgba(139, 96, 42, 0.12);
   font-weight: 700;
 }
 
 button.secondary:hover,
 button.secondary:focus-visible {
-  background: linear-gradient(135deg, rgba(224, 161, 43, 0.15), rgba(255, 248, 235, 1));
-  border-color: #bb8b2f;
+  background: linear-gradient(135deg, rgba(111, 100, 79, 0.15), rgba(255, 248, 235, 1));
+  border-color: #8b7355;
   box-shadow: 0 16px 40px rgba(139, 96, 42, 0.16);
 }
 
 .print-btn {
-  background: linear-gradient(135deg, #1c5a24 0%, #bb8b2f 40%, #b72b2b 100%);
+  background: linear-gradient(135deg, #6f644f 0%, #8b7355 100%);
   color: #fff;
 }
 
@@ -488,10 +484,10 @@ button.secondary:focus-visible {
 
 .form-message.success {
   display: block;
-  background: linear-gradient(135deg, rgba(28, 90, 36, 0.12), rgba(28, 90, 36, 0.08));
-  color: #1c3d2f;
-  border: 2px solid rgba(28, 90, 36, 0.22);
-  box-shadow: 0 8px 20px rgba(28, 90, 36, 0.1);
+  background: linear-gradient(135deg, rgba(111, 100, 79, 0.08), rgba(111, 100, 79, 0.04));
+  color: #2d2416;
+  border: 1px solid rgba(111, 100, 79, 0.18);
+  box-shadow: 0 8px 20px rgba(111, 100, 79, 0.08);
 }
 
 .form-message.error {
