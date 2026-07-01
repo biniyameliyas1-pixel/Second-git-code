@@ -324,6 +324,24 @@ textarea:focus {
   background: linear-gradient(135deg, #fff9f0 0%, #fff4e5 100%);
 }
 
+/* Invalid field styling for validation errors */
+input.invalid,
+select.invalid,
+textarea.invalid {
+  border-color: #d32f2f;
+  background: linear-gradient(135deg, rgba(255, 235, 238, 0.8) 0%, rgba(255, 205, 210, 0.4) 100%);
+  box-shadow: 0 10px 24px rgba(211, 47, 47, 0.12);
+}
+
+input.invalid:focus,
+select.invalid:focus,
+textarea.invalid:focus {
+  border-color: #d32f2f;
+  box-shadow: 
+    0 12px 32px rgba(211, 47, 47, 0.16),
+    inset 0 0 0 1px rgba(211, 47, 47, 0.15);
+}
+
 textarea {
   resize: vertical;
   min-height: 140px;
