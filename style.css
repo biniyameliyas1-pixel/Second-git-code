@@ -235,29 +235,6 @@ body::before {
   gap: 0.6rem;
 }
 
-/* ========== PALM BANNER ========== */
-
-.palm-banner {
-  margin: 2.4rem 0 0;
-  overflow: hidden;
-  border-radius: 28px;
-  position: relative;
-  background: linear-gradient(180deg, rgba(236, 196, 103, 0.22) 0%, rgba(255, 241, 205, 0.75) 55%, rgba(255, 255, 255, 0.25) 100%);
-  padding: 1.8rem 2rem;
-  border: 1px solid rgba(224, 161, 43, 0.3);
-  box-shadow: 
-    0 16px 40px rgba(139, 96, 42, 0.1),
-    inset 0 1px 0 rgba(255, 255, 255, 0.4);
-}
-
-.palm-banner svg {
-  width: 100%;
-  height: auto;
-  display: block;
-  opacity: 0.95;
-  filter: drop-shadow(0 2px 4px rgba(139, 96, 42, 0.1));
-}
-
 /* ========== FORM SECTION ========== */
 
 .form-wrapper {
