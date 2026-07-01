@@ -349,7 +349,7 @@
         
 
           <div class="actions">
-            <button type="submit" data-translate data-en="Submit Census" data-am="የማሰባሰቢያ ማቅረብ">Submit/Send Census</button>
+            <button type="submit" data-translate data-en="Submit/Send Census" data-am="ለመላክ">Submit/Send Census</button>
             <button type="button" class="secondary print-btn" data-translate data-en="Print Form" data-am="ቅጽን አትም">Print Form</button>
             <button type="reset" class="secondary" data-translate data-en="Clear Form" data-am="ቅጹን አጽዳ">Clear Form</button>
           </div>
@@ -359,6 +359,23 @@
       </section>
     </main>
   </div>
+
+  <!-- Success Dialog Modal -->
+  <div id="success-dialog" class="dialog-overlay" aria-hidden="true">
+    <div class="dialog-modal" role="alertdialog" aria-labelledby="dialog-title" aria-describedby="dialog-message">
+      <div class="dialog-header">
+        <h2 id="dialog-title" data-translate data-en="Success!" data-am="ሳካ!">Success!</h2>
+        <button type="button" class="dialog-close" aria-label="Close" data-translate data-en="Close" data-am="ዝጋ">&times;</button>
+      </div>
+      <div class="dialog-body">
+        <p id="dialog-message" data-translate data-en="Thank you! Your census form has been submitted successfully." data-am="ምስጋና! የማሰባሰቢያ ቅጽዎ በተሳካ መልኩ ቀርቦ ነው።">Thank you! Your census form has been submitted successfully.</p>
+      </div>
+      <div class="dialog-actions">
+        <button type="button" class="dialog-action-btn" data-translate data-en="OK" data-am="ሞክ">OK</button>
+      </div>
+    </div>
+  </div>
+
   <script src="script.js"></script>
 </body>
 </html>

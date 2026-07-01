@@ -56,10 +56,42 @@ function setLanguage(lang) {
 
 if (form) {
   const printButton = document.querySelector('.print-btn');
+  const successDialog = document.querySelector('#success-dialog');
+  const dialogCloseBtn = document.querySelector('.dialog-close');
+  const dialogActionBtn = document.querySelector('.dialog-action-btn');
 
   if (printButton) {
     printButton.addEventListener('click', () => window.print());
   }
+
+  function showSuccessDialog() {
+    successDialog.setAttribute('aria-hidden', 'false');
+    successDialog.classList.add('show');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeSuccessDialog() {
+    successDialog.setAttribute('aria-hidden', 'true');
+    successDialog.classList.remove('show');
+    document.body.style.overflow = '';
+  }
+
+  if (dialogCloseBtn) {
+    dialogCloseBtn.addEventListener('click', closeSuccessDialog);
+  }
+
+  if (dialogActionBtn) {
+    dialogActionBtn.addEventListener('click', () => {
+      closeSuccessDialog();
+      form.reset();
+    });
+  }
+
+  successDialog.addEventListener('click', (e) => {
+    if (e.target === successDialog) {
+      closeSuccessDialog();
+    }
+  });
 
   form.addEventListener('submit', async (event) => {
     event.preventDefault();
@@ -76,7 +108,7 @@ if (form) {
     if (response.ok) {
       messageBox.textContent = 'Thank you! Your census form has been submitted successfully.';
       messageBox.className = 'form-message success';
-      form.reset();
+      showSuccessDialog();
     } else {
       messageBox.textContent = 'Sorry, something went wrong. Please try again.';
       messageBox.className = 'form-message error';
