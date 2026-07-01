@@ -324,24 +324,6 @@ textarea:focus {
   background: linear-gradient(135deg, #fff9f0 0%, #fff4e5 100%);
 }
 
-/* Invalid field styling for validation errors */
-input.invalid,
-select.invalid,
-textarea.invalid {
-  border-color: #d32f2f;
-  background: linear-gradient(135deg, rgba(255, 235, 238, 0.8) 0%, rgba(255, 205, 210, 0.4) 100%);
-  box-shadow: 0 10px 24px rgba(211, 47, 47, 0.12);
-}
-
-input.invalid:focus,
-select.invalid:focus,
-textarea.invalid:focus {
-  border-color: #d32f2f;
-  box-shadow: 
-    0 12px 32px rgba(211, 47, 47, 0.16),
-    inset 0 0 0 1px rgba(211, 47, 47, 0.15);
-}
-
 textarea {
   resize: vertical;
   min-height: 140px;
@@ -498,6 +480,9 @@ button.secondary:focus-visible {
   border-radius: 18px;
   font-weight: 650;
   display: none;
+  line-height: 1.8;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .form-message.success {
@@ -506,6 +491,7 @@ button.secondary:focus-visible {
   color: #2d2416;
   border: 1px solid rgba(111, 100, 79, 0.18);
   box-shadow: 0 8px 20px rgba(111, 100, 79, 0.08);
+  text-align: center;
 }
 
 .form-message.error {
@@ -514,6 +500,8 @@ button.secondary:focus-visible {
   color: #8b2b1f;
   border: 2px solid rgba(192, 57, 43, 0.24);
   box-shadow: 0 8px 20px rgba(192, 57, 43, 0.1);
+  text-align: left;
+  font-weight: 500;
 }
 
 /* ========== RESPONSIVE DESIGN ========== */
