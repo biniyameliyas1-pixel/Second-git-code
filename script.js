@@ -1,6 +1,44 @@
 const form = document.querySelector('.counting-form');
 const messageBox = document.querySelector('#form-message');
 
+const translations = {
+  en: {
+    validationErrorsTitle: '❌ Please fix the following errors:\n• ',
+    requiredField: '{field} is required',
+    invalidEmail: 'Please enter a valid email address',
+    invalidPhone: 'Please enter a valid phone number (at least 9 digits)',
+    invalidFullName: 'Full name must be between 2-100 characters',
+    invalidText: '{field} must be 1-100 characters',
+    invalidBloodType: 'Blood type must be A, B, AB, or O (with + or - optional)',
+    invalidAge: 'Age must be between 0-150 years',
+    invalidNumber: '{field} must be a valid number (0-500)',
+    formSuccess: 'Thank you! Your census form has been submitted successfully.',
+    formSubmitError: 'Sorry, something went wrong. Please try again.'
+  },
+  am: {
+    validationErrorsTitle: '❌ እባኮትን የሚከተሉትን እቆጣጠር ይገምግሙ:\n• ',
+    requiredField: '{field} ያስፈልጋል',
+    invalidEmail: 'እባኮትን ትክክለኛ የኢሜይል አድራሻ ያስገቡ',
+    invalidPhone: 'እባኮትን ትክክለኛ የስልክ ቁጥር ያስገቡ (ከ9 ዲጂት በላይ)',
+    invalidFullName: 'ሙሉ ስም ከ2 እስከ 100 ቁምፊ መሆን አለበት',
+    invalidText: '{field} ከ1 እስከ 100 ቁምፊ መሆን አለበት',
+    invalidBloodType: 'የደም አይነት ከA, B, AB, O ወይም + / - ጋር ይሁን',
+    invalidAge: 'ዕድሜ ከ0 እስከ 150 መካከል መሆን አለበት',
+    invalidNumber: '{field} ትክክለኛ ቁጥር እንዲሆን ይፈልጋሉ (0-500)',
+    formSuccess: 'ምስጋና! የማሰባሰቢያ ቅጽዎ በተሳካ ሁኔታ ተላከ።',
+    formSubmitError: 'ይቅርታ፣ አንድ ነገር ተሳስቧል። እባኮትን ደግሞ ይሞክሩ።'
+  }
+};
+
+function translateMessage(key, data = {}) {
+  const locale = document.documentElement.lang || 'en';
+  let message = translations[locale][key] || translations.en[key] || '';
+  Object.keys(data).forEach((token) => {
+    message = message.replace(`{${token}}`, data[token]);
+  });
+  return message;
+}
+
 function setLanguage(lang) {
   const locale = lang === 'am' ? 'am' : 'en';
   document.documentElement.lang = locale;
@@ -14,11 +52,17 @@ function setLanguage(lang) {
       const type = element.type.toLowerCase();
       if (type === 'button' || type === 'submit' || type === 'reset') {
         element.value = text;
+        if (element.hasAttribute('aria-label')) {
+          element.setAttribute('aria-label', text);
+        }
         return;
       }
       const placeholderKey = `${locale}Placeholder`;
       if (element.dataset[placeholderKey]) {
         element.placeholder = element.dataset[placeholderKey];
+      }
+      if (element.hasAttribute('aria-label')) {
+        element.setAttribute('aria-label', text);
       }
       return;
     }
@@ -27,6 +71,23 @@ function setLanguage(lang) {
       const placeholderKey = `${locale}Placeholder`;
       if (element.dataset[placeholderKey]) {
         element.placeholder = element.dataset[placeholderKey];
+      }
+      if (element.hasAttribute('aria-label')) {
+        element.setAttribute('aria-label', text);
+      }
+      return;
+    }
+
+    if (tagName === 'META') {
+      if (element.name === 'description') {
+        element.setAttribute('content', text);
+      }
+      return;
+    }
+
+    if (tagName === 'IMG') {
+      if (element.hasAttribute('alt')) {
+        element.alt = text;
       }
       return;
     }
@@ -43,10 +104,23 @@ function setLanguage(lang) {
       } else {
         element.insertBefore(document.createTextNode(text), element.firstChild);
       }
+      if (element.hasAttribute('aria-label')) {
+        element.setAttribute('aria-label', text);
+      }
       return;
     }
 
     element.textContent = text;
+    if (element.hasAttribute('aria-label')) {
+      element.setAttribute('aria-label', text);
+    }
+  });
+
+  document.querySelectorAll('[data-en-placeholder], [data-am-placeholder]').forEach((element) => {
+    const placeholderKey = `${locale}Placeholder`;
+    if (element.dataset[placeholderKey]) {
+      element.placeholder = element.dataset[placeholderKey];
+    }
   });
 
   document.querySelectorAll('.lang-btn').forEach((button) => {
@@ -145,7 +219,7 @@ if (form) {
       if (isRequired && fieldValue === '') {
         const fieldLabel = form.querySelector(`label:has([name="${fieldName}"])`);
         const label = fieldLabel ? fieldLabel.textContent.split('\n')[0].trim() : fieldName;
-        errors.push(`${label} is required`);
+        errors.push(translateMessage('requiredField', { field: label }));
         input.classList.add('input-error');
         return;
       }
@@ -156,21 +230,21 @@ if (form) {
       switch (fieldName) {
         case 'email':
           if (fieldValue && !validateEmail(fieldValue)) {
-            errors.push('Please enter a valid email address');
+            errors.push(translateMessage('invalidEmail'));
             input.classList.add('input-error');
           }
           break;
 
         case 'phone':
           if (fieldValue && !validatePhone(fieldValue)) {
-            errors.push('Please enter a valid phone number (at least 9 digits)');
+            errors.push(translateMessage('invalidPhone'));
             input.classList.add('input-error');
           }
           break;
 
         case 'full-name':
           if (fieldValue && !validateText(fieldValue, 2)) {
-            errors.push('Full name must be between 2-100 characters');
+            errors.push(translateMessage('invalidFullName'));
             input.classList.add('input-error');
           }
           break;
@@ -188,21 +262,23 @@ if (form) {
         case 'house-number':
         case 'support-details':
           if (fieldValue && !validateText(fieldValue, 1)) {
-            errors.push(`${fieldName.replace(/-/g, ' ')} must be 1-100 characters`);
+            const fieldLabel = form.querySelector(`label:has([name="${fieldName}"])`);
+            const label = fieldLabel ? fieldLabel.textContent.split('\n')[0].trim() : fieldName.replace(/-/g, ' ');
+            errors.push(translateMessage('invalidText', { field: label }));
             input.classList.add('input-error');
           }
           break;
 
         case 'blood-type':
           if (fieldValue && !validateBloodType(fieldValue)) {
-            errors.push('Blood type must be A, B, AB, or O (with + or - optional)');
+            errors.push(translateMessage('invalidBloodType'));
             input.classList.add('input-error');
           }
           break;
 
         case 'age':
           if (fieldValue && !validateAge(fieldValue)) {
-            errors.push('Age must be between 0-150 years');
+            errors.push(translateMessage('invalidAge'));
             input.classList.add('input-error');
           }
           break;
@@ -213,7 +289,9 @@ if (form) {
         case 'children-under-7':
         case 'non-orthodox-members':
           if (fieldValue !== '' && !validateNumber(fieldValue, 0, 500)) {
-            errors.push(`${fieldName.replace(/-/g, ' ')} must be a valid number (0-500)`);
+            const fieldLabel = form.querySelector(`label:has([name="${fieldName}"])`);
+            const label = fieldLabel ? fieldLabel.textContent.split('\n')[0].trim() : fieldName.replace(/-/g, ' ');
+            errors.push(translateMessage('invalidNumber', { field: label }));
             input.classList.add('input-error');
           }
           break;
@@ -272,7 +350,7 @@ if (form) {
 
     if (validationErrors.length > 0) {
       const errorMessage = validationErrors.join('\n• ');
-      messageBox.textContent = '❌ Please fix the following errors:\n• ' + errorMessage;
+      messageBox.textContent = translateMessage('validationErrorsTitle') + errorMessage;
       messageBox.className = 'form-message error';
       messageBox.style.whiteSpace = 'pre-wrap';
       return;
@@ -289,11 +367,11 @@ if (form) {
     });
 
     if (response.ok) {
-      messageBox.textContent = 'Thank you! Your census form has been submitted successfully.';
+      messageBox.textContent = translateMessage('formSuccess');
       messageBox.className = 'form-message success';
       showSuccessDialog();
     } else {
-      messageBox.textContent = 'Sorry, something went wrong. Please try again.';
+      messageBox.textContent = translateMessage('formSubmitError');
       messageBox.className = 'form-message error';
     }
   });
