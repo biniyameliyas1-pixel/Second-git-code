@@ -236,6 +236,30 @@ body::before {
   gap: 0.6rem;
 }
 
+/* Notice banner shown under header intro */
+.form-notice {
+  margin-top: 1rem;
+  padding: 1rem 1.2rem;
+  background: linear-gradient(90deg, rgba(197,155,79,0.06), rgba(138,107,64,0.04));
+  border: 1px solid rgba(138,107,64,0.14);
+  color: var(--accent-deep);
+  border-radius: 12px;
+  font-weight: 600;
+  box-shadow: 0 8px 20px rgba(75,58,30,0.06);
+  font-size: 0.95rem;
+}
+
+.form-notice[data-translate] {
+  /* ensure translated content is readable in both locales */
+}
+
+@media (max-width: 700px) {
+  .form-notice {
+    font-size: 0.92rem;
+    padding: 0.85rem 1rem;
+  }
+}
+
 /* ========== FORM SECTION ========== */
 
 .form-wrapper {
