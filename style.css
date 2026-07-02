@@ -91,9 +91,9 @@ body::before {
 
 .header-grid {
   display: grid;
-  grid-template-columns: auto 1fr;
+  grid-template-columns: 1fr;
   gap: 0.8rem;
-  align-items: center;
+  align-items: start;
   position: relative;
   z-index: 2;
 }
@@ -239,14 +239,16 @@ body::before {
 
 .header-intro {
   display: grid;
-  grid-template-columns: minmax(0, 1.2fr) minmax(260px, 0.8fr);
-  gap: 1rem;
+  grid-template-columns: minmax(0, 1.2fr) minmax(220px, 0.8fr);
+  gap: 0.8rem;
   align-items: start;
-  padding: 0.65rem 0.75rem;
+  padding: 0.6rem 0.7rem;
+  margin-top: 0.3rem;
   border: 1px solid rgba(111, 100, 79, 0.1);
   border-radius: 14px;
   background: rgba(255, 250, 240, 0.68);
   backdrop-filter: blur(1px);
+  max-width: 100%;
 }
 
 .intro-main {
