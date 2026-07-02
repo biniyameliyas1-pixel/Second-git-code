@@ -136,7 +136,7 @@ body::before {
 .brand-logo {
   display: flex;
   gap: 0.7rem;
-  align-items: center;
+  align-items: flex-start;
   z-index: 3;
   padding-right: 0.1rem;
 }
@@ -158,7 +158,8 @@ body::before {
 .brand-logo-copy {
   display: grid;
   gap: 0.24rem;
-  align-content: center;
+  align-content: start;
+  width: 100%;
 }
 
 .brand-motif {
