@@ -46,7 +46,7 @@ body::before {
 }
 
 .page-shell {
-  max-width: 1180px;
+  max-width: 1220px;
   margin: 0 auto;
   position: relative;
   z-index: 1;
@@ -56,7 +56,7 @@ body::before {
 
 .brand-header {
   position: relative;
-  padding: 2.4rem;
+  padding: 2.2rem 2.4rem 2.4rem;
   border-radius: 32px;
   background: linear-gradient(135deg, var(--surface) 0%, rgba(255, 245, 228, 0.95) 100%);
   border: 2px solid rgba(138, 107, 64, 0.16);
@@ -92,8 +92,8 @@ body::before {
 .header-grid {
   display: grid;
   grid-template-columns: auto 1fr;
-  gap: 2rem;
-  align-items: center;
+  gap: 2.2rem;
+  align-items: start;
   position: relative;
   z-index: 2;
 }
@@ -136,7 +136,7 @@ body::before {
 .brand-logo {
   display: flex;
   gap: 1.4rem;
-  align-items: center;
+  align-items: flex-start;
   z-index: 3;
 }
 
@@ -234,23 +234,22 @@ body::before {
 .header-intro {
   display: grid;
   gap: 0.6rem;
+  max-width: 760px;
+  align-items: start;
 }
 
 /* Notice banner shown under header intro */
 .form-notice {
   margin-top: 1rem;
-  padding: 1rem 1.2rem;
-  background: linear-gradient(90deg, rgba(197,155,79,0.06), rgba(138,107,64,0.04));
+  padding: 1rem 1.15rem;
+  background: linear-gradient(90deg, rgba(197,155,79,0.07), rgba(138,107,64,0.04));
   border: 1px solid rgba(138,107,64,0.14);
   color: var(--accent-deep);
-  border-radius: 12px;
+  border-radius: 14px;
   font-weight: 600;
   box-shadow: 0 8px 20px rgba(75,58,30,0.06);
   font-size: 0.95rem;
-}
-
-.form-notice[data-translate] {
-  /* ensure translated content is readable in both locales */
+  line-height: 1.7;
 }
 
 @media (max-width: 700px) {
@@ -274,7 +273,7 @@ body::before {
   box-shadow: 
     0 32px 80px rgba(139, 96, 42, 0.16),
     inset 0 1px 0 rgba(255, 255, 255, 0.8);
-  padding: 2.4rem;
+  padding: 2.2rem;
   position: relative;
 }
 
@@ -308,7 +307,7 @@ body::before {
 .form-row {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1.4rem;
+  gap: 1.2rem;
 }
 
 label {
@@ -415,11 +414,16 @@ textarea.input-error:focus {
 .form-section {
   border: 1px solid rgba(138, 107, 64, 0.18);
   border-radius: 24px;
-  padding: 1.8rem;
+  padding: 1.6rem 1.7rem;
   background: linear-gradient(135deg, rgba(250, 243, 231, 0.95) 0%, rgba(255, 250, 240, 0.94) 100%);
   position: relative;
   transition: all 0.3s ease;
   box-shadow: 0 18px 40px rgba(75, 58, 30, 0.06);
+}
+
+.form-section:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 22px 48px rgba(75, 58, 30, 0.09);
 }
 
 .form-section::before {
@@ -456,8 +460,9 @@ textarea.input-error:focus {
 .actions {
   display: flex;
   flex-wrap: wrap;
-  gap: 1.2rem;
+  gap: 1rem;
   margin-top: 1rem;
+  justify-content: flex-end;
 }
 
 button {
